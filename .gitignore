@@ -4,3 +4,14 @@ node_modules/
 .env
 .vite/
 dist/
+
+# Images (excluded in aonyxwithoutpics branch)
+Images/
+*.png
+*.PNG
+*.jpg
+*.jpeg
+*.gif
+*.ai
+kirshia website/imgs/
+kirshia website/components/scroll/imgs/
