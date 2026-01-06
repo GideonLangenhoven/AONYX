@@ -1,0 +1,291 @@
+.page-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    padding-top: 6rem;
+}
+
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(6, 16, 23, 0.8) 0%, rgba(6, 16, 23, 0.4) 60%, rgba(6, 16, 23, 0.8) 100%);
+    z-index: 1;
+}
+
+.page-hero .hero-media {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.page-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    width: var(--container);
+    margin: 0 auto;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.4rem 1.6rem;
+    border-radius: var(--radius-lg);
+    background: rgba(7, 20, 29, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.page-hero p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Process / Timeline Layout */
+.process-section {
+    position: relative;
+    padding: 6rem 0;
+    overflow: hidden;
+}
+
+/* Connecting line */
+.process-section::before {
+    content: "";
+    position: absolute;
+    top: 50px;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% - 100px);
+    background: linear-gradient(180deg, rgba(245, 193, 91, 0) 0%, rgba(245, 193, 91, 0.6) 15%, rgba(245, 193, 91, 0.6) 85%, rgba(245, 193, 91, 0) 100%);
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.process-step {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
+    z-index: 1;
+}
+
+.process-step:last-child {
+    margin-bottom: 0;
+}
+
+/* Alternating Layout */
+.process-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* The card itself */
+.process-content {
+    width: 38%;
+    background: var(--white);
+    padding: 2.5rem 3rem;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    /* Ensure content is strictly sized */
+    flex-shrink: 0;
+}
+
+/* The Image on the opposite side */
+.process-image {
+    width: 38%;
+    height: 300px;
+    /* Fixed height for consistency */
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow);
+    flex-shrink: 0;
+    /* Margin to push it away from the center line */
+    margin-left: 4%;
+}
+
+/* For even children (reverse row), the image is on the left (visually), so margin needs flipping */
+.process-step:nth-child(even) .process-image {
+    margin-left: 0;
+    margin-right: 4%;
+}
+
+/* Opposing margins for content to keep symmetry? 
+   Actually, flex gap or margins. 
+   Let's use specific margins to create the gap around the center line. */
+.process-content {
+    margin-right: 4%;
+}
+
+.process-step:nth-child(even) .process-content {
+    margin-right: 0;
+    margin-left: 4%;
+}
+
+.process-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.process-step:hover .process-image img {
+    transform: scale(1.05);
+}
+
+.process-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+.process-content h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.6rem;
+}
+
+/* Step Number Badge */
+.process-number {
+    position: absolute;
+    top: 2rem;
+    /* Position relative to the center line */
+}
+
+/* Odd steps (Left side): Number on the right edge of content or on the line? 
+   Let's create a distinct circle on the line itself. */
+.process-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 1.2rem;
+    z-index: 2;
+    box-shadow: 0 0 0 6px var(--sand);
+    /* Matches background to create gap */
+    top: 10px;
+    /* Aligns roughly with top of cards */
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .process-section::before {
+        left: 24px;
+        width: 2px;
+    }
+
+    .process-step,
+    .process-step:nth-child(even) {
+        flex-direction: column;
+        padding-left: 60px;
+        margin-bottom: 4rem;
+        align-items: flex-start;
+    }
+
+    .process-content {
+        width: 100%;
+        margin: 0;
+        /* Reset margins */
+    }
+
+    .process-step:nth-child(even) .process-content {
+        margin: 0;
+    }
+
+    .process-image {
+        width: 100%;
+        height: 240px;
+        margin: 0 0 1.5rem 0;
+        order: -1;
+        /* Move image to top in flex column */
+        margin-left: 0;
+    }
+
+    .process-step:nth-child(even) .process-image {
+        margin: 0 0 1.5rem 0;
+    }
+
+    .process-marker {
+        left: 24px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        top: 0;
+    }
+}
+
+.detail-list {
+    width: var(--container);
+    margin: 2rem auto 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.detail-list li {
+    list-style: none;
+    background: var(--mist);
+    border-radius: 14px;
+    padding: 1rem 1.2rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: start;
+}
+
+.detail-list li::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 999px;
+    background: var(--accent);
+    margin-top: 6px;
+}
+
+.faq-section {
+    background: var(--mist);
+    padding: 6rem 0;
+}
+
+.faq-grid {
+    width: var(--container);
+    margin: 3rem auto 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.faq-card {
+    background: var(--white);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.faq-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.faq-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 26px 50px rgba(7, 20, 29, 0.12);
+}
+
+@media (max-width: 980px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+}

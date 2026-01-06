@@ -1,0 +1,178 @@
+body{
+    margin:0;
+}
+
+
+ .experience{
+    /* background-image: url(/components/scroll/imgs/nightWalk.png); */
+    /* filter: blur(8px);
+    -webkit-filter: blur(8px); */
+    overflow: hidden;
+    height:100vh;
+    background-size: cover;
+    position: relative;
+}
+.backgroundContainer{
+    width: 100vw;
+    height:100vh;
+    /* background-color: orange; */
+    background-image: url(/components/scroll/imgs/nightWalk.png);
+     filter: blur(8px);
+    -webkit-filter: blur(8px); 
+    background-size: cover;
+    position: relative;
+    transform: scale(1.1);
+}
+
+#day_backgroundContainer{
+     background-color:#85c2f4 ; 
+
+    background-image:  url(/components/scroll/imgs/dayWalk.png);
+
+}
+#night_backgroundContainer{
+     background-color:#de8a1c ; 
+
+    background-image:  url(/components/scroll/imgs/nightWalk.png);
+
+}
+#snorkel_backgroundContainer{
+     background-color:#a4fdfe ; 
+
+    background-image:  url(/components/scroll/imgs/snorkle.png);
+
+}
+
+.card{
+    /* width: 27vmin;
+     */
+    height:48vmin;
+    width:40vmin;
+    min-width: 200px;
+    min-height: 300px;
+
+    /* margin:5vmin; */
+    background-color: grey;
+    border-radius: 5vmin;
+    transition: transform 0.2s ease;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.419);
+
+}
+
+
+.card h2, .card p{
+    color:white;
+    margin: 0;
+    padding:1vmin;
+}
+
+.card p{
+    padding-bottom: 3vmin;
+}
+
+.cardDivider{
+    border-top:1px solid white;
+    width: 80%;
+}
+
+#cardNight{
+    background-image: url(/components/scroll/imgs/nightWalk.png);
+}
+#cardDay{
+    background-image: url(/components/scroll/imgs/dayWalk.png);
+}
+#cardSnorkel{
+    background-image: url(/components/scroll/imgs/snorkle.png);
+}
+
+
+.card:hover{
+    transform: scale(1.01);
+
+    transition: transform 0.3s ease;
+}
+
+.cardContainer{
+    position: absolute;
+    width: 70%;
+    /* margin:  0 auto; */
+    justify-content: center;
+    bottom: 10vmin;
+    /* left:50%; */
+    display: flex;
+    border: 2px solid red;
+    gap:6vmin;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+ 
+}
+.standard_cardContainer{
+    display: flex;
+}
+/* @media screen and (min-width: 751px){
+    .cardContainer{
+        display:none;
+    }
+    .standard_cardContainer{
+        display: block;
+    }
+} */
+.swiper_cardContainer{
+    display: none;
+}
+
+.swiper-pagination-bullet{
+    background-color: #ffffff;
+}
+
+.swiper-slide{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 750px){
+    .cardContainer{
+        width: 100%;
+        padding-bottom: 40px;
+    }
+    .standard_cardContainer{
+        display:none;
+    }
+    .swiper_cardContainer{
+        display: flex;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .cardContainer{
+        /* position: absolute; */
+        width: 100%;
+        /* height: 50vh; */
+        /* min-height: 350px; */
+        padding-bottom: 40px;
+        margin:  0 auto;
+        justify-content: center;
+        bottom: 10vmin;
+        /* left:50%; */
+        display: flex;
+        border: 2px solid red;
+    
+        left: 0; 
+      right: 0; 
+      margin-left: auto; 
+      margin-right: auto; 
+    }
+    .standard_cardContainer{
+        display:none;
+    }
+}

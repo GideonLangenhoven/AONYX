@@ -1,0 +1,159 @@
+body{
+    margin: 0;
+
+}
+
+*{
+    border:1px solid red;
+}
+
+.mainContent{
+    height:50vh;
+    background-color: rgb(245, 161, 161);
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Poppins';
+    font-weight: 700;
+  }
+  
+  html {font-size: 100%;} /* 16px */
+  
+  h1 {font-size: 4.210rem; /* 67.36px */}
+  
+  h2 {font-size: 3.158rem; /* 50.56px */}
+  
+  h3 {font-size: 2.369rem; /* 37.92px */}
+  
+  h4 {font-size: 1.777rem; /* 28.48px */}
+  
+  h5 {font-size: 1.333rem; /* 21.28px */}
+  
+  small {font-size: 0.750rem; /* 12px */}
+  
+
+
+/* Footer */
+footer{
+    border-top: 2px solid black;
+    
+    padding-left: 10vmin;
+    padding-right: 10vmin;
+    padding-top: 5vmin;
+    padding-bottom: 10vmin;
+   
+    height: fit-content;
+    border-bottom: 2px dotted blue;
+
+}
+
+.footerMain{
+    display: flex;
+    justify-content: space-between;
+    /* gap: 5vmin; */
+    flex-wrap: wrap;
+}
+
+
+/* Newsletter */
+
+.newsletter{
+    /* min-width: fit-content; */
+    
+    /* background-color: blue; */
+}
+
+
+.joinNewsLetter{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: brown; */
+    border-bottom: 1px solid black;
+}
+
+#joinNewsletter{
+    color: grey;
+}
+
+ul{
+    list-style: none;
+    list-style-position: inside;
+    /* display: inline; */
+    /* list-style: none; */
+    margin: 0px;
+    padding: 0px;
+}
+
+.footerNavContainer{
+    display:flex;
+    /* background-color: aqua; */
+    width: fit-content;
+}
+
+.footerNav{
+    padding-left: 5vmin;
+    padding-right: 5vmin;
+}
+
+.footerNav li{
+    /* border-bottom: 1px solid black;
+    width: fit-content; */
+    text-decoration: underline;
+}
+
+/* logo */
+
+.logo{
+    border:1px solid black;
+    border-radius: 10px;
+    padding:5vmin;
+    width: fit-content;
+}
+
+
+/* extras */
+.footerExtras *{
+    color:grey;
+    font-size: 0.9rem;
+}
+
+.footerExtras{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10vmin;
+}
+
+@media screen and (max-width: 828px) {
+
+    /* body{
+        background-color: blue;} */
+        .logo{
+            display: none;
+        }
+
+        .footerMain{
+            flex-direction: column;
+            gap:5vmin;
+            align-items: center;
+        }
+        .newsletter{
+            width: 80vw;
+        }
+
+        .newsletter h2{
+            font-size: 5vmin;
+        }
+}
+
+@media screen and (min-width: 829px) and ( max-width:950px) {
+/* 
+    body{
+        background-color: rgb(0, 255, 55);} */
+
+    .logo{
+        display: none;
+    }
+    
+
+}
