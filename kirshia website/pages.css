@@ -68,7 +68,8 @@
     position: relative;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 5rem;
     z-index: 1;
 }
@@ -77,14 +78,30 @@
     margin-bottom: 0;
 }
 
-/* Alternating Layout */
+/* Alternating Layout: Even steps have Image Left, Content Right */
 .process-step:nth-child(even) {
     flex-direction: row-reverse;
 }
 
+/* New Process Image */
+.process-image {
+    width: 42%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.process-image:hover {
+    transform: scale(1.02);
+}
+
 /* The card itself */
 .process-content {
-    width: 38%;
+    width: 42%;
     background: var(--white);
     padding: 2.5rem 3rem;
     border-radius: var(--radius-lg);
@@ -92,51 +109,6 @@
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.8);
-    /* Ensure content is strictly sized */
-    flex-shrink: 0;
-}
-
-/* The Image on the opposite side */
-.process-image {
-    width: 38%;
-    height: 300px;
-    /* Fixed height for consistency */
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    position: relative;
-    box-shadow: var(--shadow);
-    flex-shrink: 0;
-    /* Margin to push it away from the center line */
-    margin-left: 4%;
-}
-
-/* For even children (reverse row), the image is on the left (visually), so margin needs flipping */
-.process-step:nth-child(even) .process-image {
-    margin-left: 0;
-    margin-right: 4%;
-}
-
-/* Opposing margins for content to keep symmetry? 
-   Actually, flex gap or margins. 
-   Let's use specific margins to create the gap around the center line. */
-.process-content {
-    margin-right: 4%;
-}
-
-.process-step:nth-child(even) .process-content {
-    margin-right: 0;
-    margin-left: 4%;
-}
-
-.process-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.process-step:hover .process-image img {
-    transform: scale(1.05);
 }
 
 .process-content:hover {
@@ -161,7 +133,8 @@
 .process-marker {
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 50px;
     height: 50px;
     background: var(--accent);
@@ -173,10 +146,7 @@
     color: var(--navy);
     font-size: 1.2rem;
     z-index: 2;
-    box-shadow: 0 0 0 6px var(--sand);
-    /* Matches background to create gap */
-    top: 10px;
-    /* Aligns roughly with top of cards */
+    box-shadow: 0 0 0 8px var(--sand);
 }
 
 /* Mobile Responsive */
@@ -190,31 +160,18 @@
     .process-step:nth-child(even) {
         flex-direction: column;
         padding-left: 60px;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
         align-items: flex-start;
     }
 
     .process-content {
         width: 100%;
-        margin: 0;
-        /* Reset margins */
-    }
-
-    .process-step:nth-child(even) .process-content {
-        margin: 0;
+        margin-bottom: 1.5rem;
     }
 
     .process-image {
         width: 100%;
-        height: 240px;
-        margin: 0 0 1.5rem 0;
-        order: -1;
-        /* Move image to top in flex column */
-        margin-left: 0;
-    }
-
-    .process-step:nth-child(even) .process-image {
-        margin: 0 0 1.5rem 0;
+        height: 250px;
     }
 
     .process-marker {
@@ -222,7 +179,9 @@
         width: 40px;
         height: 40px;
         font-size: 1rem;
-        top: 0;
+        top: 40px;
+        /* Align with top of content roughly */
+        transform: translate(-50%, 0);
     }
 }
 

@@ -735,19 +735,12 @@ small {
     align-items: start;
 }
 
-
-.contact-info-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
 .contact-section .contact-card {
     background: var(--sand);
     border-radius: var(--radius-md);
-    padding: 1.25rem;
+    padding: 1.6rem;
     border: none;
-    margin-top: 0;
+    margin-top: 1.5rem;
     display: block;
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
