@@ -4,11 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anoynx Marine Experiences</title>
+    <title>Aonyx Marine Experiences | Cape Town Marine Tours</title>
+    <meta name="description"
+        content="Join Aonyx Marine Experiences for guided night rock pool tours, snorkel safaris, and educational marine adventures in Cape Town. Led by qualified marine biologists.">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Aonyx Marine Experiences",
+      "image": "imgs/colored-logo (1).png",
+      "description": "Premium guided night rock pool tours, snorkel safaris, and marine biology adventures in Cape Town.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cape Town",
+        "addressCountry": "ZA"
+      },
+      "priceRange": "R450 - R850",
+      "telephone": "+27762407806",
+      "email": "kirshia.govender@gmail.com"
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
@@ -26,7 +47,11 @@
                 <a href="#contact">Contact</a>
             </nav>
             <a class="nav-cta" href="#contact">Book now</a>
-            <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -45,25 +70,132 @@
                     adventures that reveal the magic of the Cape.</p>
                 <div class="hero_actions">
                     <a class="btn primary" href="#contact">Book now</a>
+                    <div class="urgency-badge" id="urgency-badge">
+                        <span class="pulsing-dot"></span>
+                        Next Night Walk: <span id="next-tour-date">Loading...</span>
+                    </div>
+                </div>
+                <div class="hero_rating">
+                    <div class="stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                    </div>
+                    <span>4.9/5 on TripAdvisor</span>
                 </div>
             </div>
+            </div>
 
-            <div class="hero_strip" aria-hidden="true">
-                <div class="hero_strip_track">
+            <div class="trust-strip">
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
                     <span>Marine Biologist Led</span>
-                    <span>Ocean Education</span>
-                    <span>Night Rock Pool Tours</span>
-                    <span>Snorkel Safaris</span>
-                    <span>Sea Kayaking</span>
-                    <span>Conservation</span>
                 </div>
-                <div class="hero_strip_track">
-                    <span>Marine Biologist Led</span>
-                    <span>Ocean Education</span>
-                    <span>Night Rock Pool Tours</span>
-                    <span>Snorkel Safaris</span>
-                    <span>Sea Kayaking</span>
-                    <span>Conservation</span>
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>Original Night Tours</span>
+                </div>
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <span>500+ Happy Adventurers</span>
+                </div>
+                <div class="trust-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+                    </svg>
+                    <span>Certified Guides</span>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- Current Conditions / Tide Widget -->
+        <section class="section tide-section" id="conditions">
+            <div class="section-inner">
+                <div class="tide-widget" data-animate>
+                    <div class="tide-header">
+                        <div>
+                            <p class="eyebrow" style="color: var(--accent);">Live Conditions</p>
+                            <h3>Ocean Report requesting...</h3>
+                            <p class="tide-date">Loading date...</p>
+                        </div>
+                        <div class="weather-icon">
+                            <!-- Icon will be injected by JS -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="5" />
+                                <path
+                                    d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="tide-grid">
+                        <div class="tide-item">
+                            <span class="label">Low Tide</span>
+                            <span class="value" id="low-tide-time">--:--</span>
+                            <span class="sub">Perfect for rock pools</span>
+                        </div>
+                        <div class="tide-item">
+                            <span class="label">High Tide</span>
+                            <span class="value" id="high-tide-time">--:--</span>
+                            <span class="sub">Best for swimming</span>
+                        </div>
+                        <div class="tide-item">
+                            <span class="label">Moon Phase</span>
+                            <span class="value" id="moon-phase">--</span>
+                            <span class="sub">Loading...</span>
+                        </div>
+                        <div class="tide-item">
+                            <span class="label">Best Window</span>
+                            <span class="value" id="best-window">--:--</span>
+                            <span class="sub">For viewing</span>
+                        </div>
+                    </div>
+                    <div
+                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;">
+                        <p><strong>Biologist's Note:</strong> <span id="bio-note">Conditions are looking good today.
+                                Visibility is expected to be clear.</span></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -97,6 +229,75 @@
                     <div class="about-image" style="background-image: url('imgs/photo2.jpg');" data-animate
                         data-parallax="0.18"></div>
                 </div>
+
+                <div class="conservation-note" data-animate>
+                    <h4>Conservation First</h4>
+                    <p>We believe in leaving no trace. A portion of every booking supports local marine conservation
+                        initiatives in the Table Mountain National Park. We adhere to strict ethical wildlife
+                        interaction guidelines.</p>
+                </div>
+
+                <div class="team-grid" style="margin-top: 5rem;">
+                    <div class="team-card" data-animate>
+                        <div class="team-img" style="background-image: url('imgs/pics/14.jpg');"></div>
+                        <div class="team-content">
+                            <h3>Kirshia Govender</h3>
+                            <p class="role">Marine Biologist & Founder</p>
+                            <p>"My favorite moment is when guests see their first bioluminescent wave. It never gets
+                                old."</p>
+                            <span class="credential">MSc Marine Biology</span>
+                        </div>
+                    </div>
+                    <div class="team-card" data-animate>
+                        <div class="team-img" style="background-image: url('imgs/pics/3.jpeg');"></div>
+                        <div class="team-content">
+                            <h3>Expert Guide</h3>
+                            <p class="role">Marine Guide</p>
+                            <p>"The kelp forests are a whole other planet. I love showing people the diversity we have
+                                right here."</p>
+                            <span class="credential">Certified Guide</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education / Blog Teaser Section -->
+        <section class="section" style="padding: 4rem 0; background-color: #f1f5f9;">
+            <div class="section-inner">
+                <div class="section-header" data-animate>
+                    <p class="eyebrow">Marine Journal</p>
+                    <h2>Learn About The Ocean</h2>
+                </div>
+                <div class="blog-grid">
+                    <article class="blog-card" data-animate>
+                        <div class="blog-img" style="background-image: url('imgs/pics/1.jpg');"></div>
+                        <div class="blog-content">
+                            <span class="blog-cat">Marine Biology</span>
+                            <h4>Why Do Tides Happen?</h4>
+                            <p>Understanding the pull of the moon and how it shapes our coastline.</p>
+                            <a href="#" class="blog-link">Read more →</a>
+                        </div>
+                    </article>
+                    <article class="blog-card" data-animate>
+                        <div class="blog-img" style="background-image: url('imgs/pics/4.jpg');"></div>
+                        <div class="blog-content">
+                            <span class="blog-cat">Wildlife</span>
+                            <h4>The Secret Life of Nudibranchs</h4>
+                            <p>Spotting the colorful 'sea slugs' of the Cape Peninsula.</p>
+                            <a href="#" class="blog-link">Read more →</a>
+                        </div>
+                    </article>
+                    <article class="blog-card" data-animate>
+                        <div class="blog-img" style="background-image: url('imgs/pics/18.jpg');"></div>
+                        <div class="blog-content">
+                            <span class="blog-cat">Conservation</span>
+                            <h4>Protecting Kelp Forests</h4>
+                            <p>Why our underwater forests are vital for the planet's health.</p>
+                            <a href="#" class="blog-link">Read more →</a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -124,6 +325,7 @@
                     Description text.
                 </div>
                 <div class="cta">
+                    <div class="exp-price">From <span class="amount">R650</span> pp</div>
                     <a class="exp-btn-primary" href="#contact">Book</a>
                     <a class="exp-btn-ghost" href="#">Discover</a>
                 </div>
@@ -143,6 +345,7 @@
                     Description text.
                 </div>
                 <div class="cta">
+                    <div class="exp-price">From <span class="amount">R650</span> pp</div>
                     <a class="exp-btn-primary" href="#contact">Book</a>
                     <a class="exp-btn-ghost" href="#">Discover</a>
                 </div>
@@ -183,61 +386,61 @@
                 <div class="gallery-track">
 
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/photo2.jpg" alt="Rockpool life at low tide">
+                        <img src="imgs/photo2.jpg" loading="lazy" alt="Rockpool life at low tide">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/photo3.jpg" alt="Cape Town coastline views">
+                        <img src="imgs/photo3.jpg" loading="lazy" alt="Cape Town coastline views">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/photo4.jpg" alt="Sunset over the Atlantic">
+                        <img src="imgs/photo4.jpg" loading="lazy" alt="Sunset over the Atlantic">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/1.jpg" alt="Gallery image">
+                        <img src="imgs/pics/1.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/2.jpg" alt="Gallery image">
+                        <img src="imgs/pics/2.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/3.jpeg" alt="Gallery image">
+                        <img src="imgs/pics/3.jpeg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/4.jpg" alt="Gallery image">
+                        <img src="imgs/pics/4.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/5.jpg" alt="Gallery image">
+                        <img src="imgs/pics/5.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/6.jpg" alt="Gallery image">
+                        <img src="imgs/pics/6.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/7.jpg" alt="Gallery image">
+                        <img src="imgs/pics/7.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/8.jpg" alt="Gallery image">
+                        <img src="imgs/pics/8.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/9.jpg" alt="Gallery image">
+                        <img src="imgs/pics/9.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/11.jpg" alt="Gallery image">
+                        <img src="imgs/pics/11.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/13.jpg" alt="Gallery image">
+                        <img src="imgs/pics/13.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/14.jpg" alt="Gallery image">
+                        <img src="imgs/pics/14.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/15.jpg" alt="Gallery image">
+                        <img src="imgs/pics/15.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/16.jpg" alt="Gallery image">
+                        <img src="imgs/pics/16.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/18.jpg" alt="Gallery image">
+                        <img src="imgs/pics/18.jpg" loading="lazy" alt="Gallery image">
                     </div>
                     <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/20.jpg" alt="Gallery image">
+                        <img src="imgs/pics/20.jpg" loading="lazy" alt="Gallery image">
                     </div>
                 </div>
             </div>
@@ -245,6 +448,93 @@
                 <div style="margin-top: 2rem;">
                     <a class="btn ghost dark" href="gallery.html">View full gallery</a>
                 </div>
+            </div>
+        </section>
+
+        <section class="section alt" id="testimonials">
+            <div class="section-inner">
+                <div class="section-header" data-animate>
+                    <p class="eyebrow">Reviews</p>
+                    <h2>What our adventurers say</h2>
+                </div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card" data-animate>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"An absolute must-do in Cape Town! The night walk was unlike anything I've ever
+                            experienced. Seeing the ocean glow was magical."</p>
+                        <div class="author">
+                            <div class="author-avatar" style="background-color: var(--accent);">ST</div>
+                            <div>
+                                <p class="name">Sarah T.</p>
+                                <small>Night Walk</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-animate>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Highly recommend the snorkel safari. I was nervous about the cold water but
+                            the wetsuits were perfect and the kelp forests are otherworldly."</p>
+                        <div class="author">
+                            <div class="author-avatar" style="background-color: #69b5d6;">DM</div>
+                            <div>
+                                <p class="name">David M.</p>
+                                <small>Snorkel Safari</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-animate>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Learned so much from Kirshia. Her passion for marine biology is infectious. A
+                            fantastic educational experience for the whole family."</p>
+                        <div class="author">
+                            <div class="author-avatar" style="background-color: #f1f5f9; color: var(--navy);">JK</div>
+                            <div>
+                                <p class="name">Jessica K.</p>
+                                <small>Rockpool Walk</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Testimonials Placeholder -->
+            <div class="video-testimonials" style="margin-top: 4rem;">
+                <div class="section-header" data-animate>
+                    <h3>See the experience</h3>
+                </div>
+                <div class="video-grid">
+                    <!-- Placeholder 1 -->
+                    <div class="video-card" data-animate>
+                        <div class="video-thumbnail"
+                            style="background-color: #1e293b; display:flex; align-items:center; justify-content:center; height: 300px; color: rgba(255,255,255,0.5);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                        <div class="video-info">
+                            <h4>Night Walk Magic</h4>
+                            <p>Highlights from our bioluminescence tour.</p>
+                        </div>
+                    </div>
+                    <!-- Placeholder 2 -->
+                    <div class="video-card" data-animate>
+                        <div class="video-thumbnail"
+                            style="background-color: #1e293b; display:flex; align-items:center; justify-content:center; height: 300px; color: rgba(255,255,255,0.5);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </div>
+                        <div class="video-info">
+                            <h4>Snorkeling the Kelp</h4>
+                            <p>Guest footage from the Atlantic.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             </div>
         </section>
 
@@ -277,26 +567,134 @@
                             <p>Aonyx Marine Experiences</p>
                         </a>
                     </div>
-                    <form class="contact-form" data-animate>
-                        <label for="name">Full name</label>
-                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+                    <div class="contact-form-container" data-animate>
+                        <!-- Step 1: Vibe Selection -->
+                        <div id="booking-step-1" class="booking-step">
+                            <h3 style="margin-bottom: 1.5rem;">What's your vibe?</h3>
+                            <div class="vibe-grid">
+                                <button type="button" class="vibe-card" onclick="selectVibe('Night Walk')">
+                                    <span class="vibe-icon">🌙</span>
+                                    <span class="vibe-name">Night Walk</span>
+                                </button>
+                                <button type="button" class="vibe-card" onclick="selectVibe('Snorkel Safari')">
+                                    <span class="vibe-icon">🤿</span>
+                                    <span class="vibe-name">Snorkel</span>
+                                </button>
+                                <button type="button" class="vibe-card" onclick="selectVibe('Day Walk')">
+                                    <span class="vibe-icon">🦀</span>
+                                    <span class="vibe-name">Day Walk</span>
+                                </button>
+                                <button type="button" class="vibe-card" onclick="selectVibe('Kayak')">
+                                    <span class="vibe-icon">🚣</span>
+                                    <span class="vibe-name">Kayak</span>
+                                </button>
+                            </div>
+                        </div>
 
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
-                            required>
+                        <!-- Step 2: Details Form -->
+                        <form id="booking-form" class="contact-form" style="display: none;">
+                            <div style="margin-bottom: 1rem; cursor: pointer; color: var(--text-light); font-size: 0.9rem;"
+                                onclick="resetVibe()">
+                                ← Change Experience: <strong id="selected-vibe-display"
+                                    style="color: var(--navy);">...</strong>
+                            </div>
+                            <input type="hidden" id="selected-tour" name="tour-type">
 
+                            <label for="name">Full name</label>
+                            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name"
+                                required>
 
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" autocomplete="email"
+                                placeholder="you@example.com" required>
 
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4"
-                            placeholder="Tell us what you're excited about."></textarea>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <label for="date">Date</label>
+                                    <input id="date" name="date" type="date">
+                                </div>
+                                <div>
+                                    <label for="guests">Guests</label>
+                                    <input id="guests" name="guests" type="number" min="1" max="12" placeholder="Ex: 2">
+                                </div>
+                            </div>
 
-                        <button class="btn primary" type="submit">Request booking</button>
-                    </form>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Any special requests?"></textarea>
+
+                            <button class="btn primary" type="submit">Request booking</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Instagram Feed Section -->
+        <section class="section" style="padding-top: 2rem; padding-bottom: 2rem; background: var(--white);">
+            <div class="section-inner" style="text-align: center; margin-bottom: 2rem;">
+                <p class="eyebrow" style="color: var(--accent-dark);">@AONYX_MARINE_EXPERIENCES</p>
+                <h3>Follow the adventure</h3>
+            </div>
+            <!-- Instagram Grid (Static Placeholder for reliability) -->
+            <div class="insta-grid">
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/1.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/4.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/9.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/15.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/16.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+            </div>
+        </section>
     </main>
+
+    <a href="#contact" class="floating-cta" aria-label="Book your adventure now">
+        Book Now
+    </a>
 
     <footer class="footer">
         <div class="footer-inner">
