@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -23,12 +23,15 @@
                 <img src="imgs/colored-logo (1).png" alt="Anoynx logo">
             </a>
             <nav class="nav-links" data-nav>
-                <a href="how-it-works.html">How it works</a>
+                <button class="nav-close" type="button" data-nav-close aria-label="Close Navigation">X</button>
+                <a href="adventures.html">Adventures</a>
+                <a href="about.html">About</a>
                 <a href="gallery.html">Gallery</a>
-                <a href="main.html#experiences">Experiences</a>
-                <a href="main.html#contact">Contact</a>
+                <a href="weather.html">Weather</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="mobile-only-cta">Book Now</a>
             </nav>
-            <a class="nav-cta" href="main.html#contact">Book now</a>
+            <a class="nav-cta" href="contact.html">Book now</a>
             <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -170,12 +173,23 @@
                 <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
                     style="height: 90px; margin-bottom: 1rem; display: block;">
                 <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <div style="margin-top: 1rem; opacity: 0.8;">
+                    <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
+                    <p>kirshia.govender@gmail.com</p>
+                </div>
             </div>
             <div class="footer-nav">
-                <a href="main.html">Home</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="main.html#experiences">Experiences</a>
-                <a href="main.html#contact">Contact</a>
+                <div class="nav-group">
+                    <a href="adventures.html">Adventures</a>
+                    <a href="weather.html" class="nav-sub">Weather</a>
+                </div>
+                <div class="nav-group">
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="nav-sub">Contact</a>
+                </div>
+                <div class="nav-group">
+                    <a href="gallery.html">Gallery</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">

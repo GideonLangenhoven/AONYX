@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventures | Aonyx Marine Experiences</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <style>
+        /* Specific styles for this page if needed */
+        .adventures-hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Recreating gallery track styles locally or ensuring they exist in style.css */
+        .gallery-track-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 4rem 0;
+            background: var(--sand);
+        }
+
+        .gallery-track-adventures {
+            display: flex;
+            gap: 2rem;
+            /* Adjust based on desired spacing */
+            width: max-content;
+            animation: galleryScroll 86s linear infinite;
+        }
+
+        .gallery-track-adventures:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes galleryScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Ensure specific exp-card styling works if extracted from main context */
+        .exp-card-static {
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header" data-header>
+        <div class="navbar">
+            <a class="nav-logo" href="main.html" aria-label="Aonyx home">
+                <img src="imgs/colored-logo (1).png" alt="Aonyx logo">
+            </a>
+            <nav class="nav-links" data-nav>
+                <button class="nav-close" type="button" data-nav-close aria-label="Close Navigation">X</button>
+                <a href="adventures.html" class="active">Adventures</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="weather.html">Weather</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="mobile-only-cta">Book Now</a>
+            </nav>
+            <a class="nav-cta" href="contact.html">Book now</a>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Mobile Hero (Hidden on Desktop) -->
+        <section class="page-hero mobile-adventures-hero">
+            <div class="hero-media" style="background-image: url('imgs/photo4.jpg');" data-parallax="0.15"></div>
+            <div class="hero-content" data-animate>
+                <p class="eyebrow">Discover</p>
+                <h1>Our Adventures</h1>
+                <p>Explore the Cape's living coastline. From glistening kelp forests to hidden rock pools.</p>
+            </div>
+        </section>
+
+        <section class="section" id="experiences"
+            style="padding: 0; height: 100vh; background-color: #07141d; color: var(--white); position: relative; overflow: hidden;">
+            <div class="exp-indicator"></div>
+            <div id="exp-slider-container"></div>
+
+            <div class="exp-details" id="details-even">
+                <div class="place-box">
+                    <div class="text">Region</div>
+                </div>
+                <div class="title-box-1">
+                    <div class="title-1">TITLE</div>
+                </div>
+                <div class="title-box-2">
+                    <div class="title-2">SUBTITLE</div>
+                </div>
+                <div class="desc">
+                    Description text.
+                </div>
+                <div class="cta">
+                    <div class="exp-price">From <span class="amount">R650</span> pp</div>
+                    <a class="exp-btn-primary" href="#contact">Book</a>
+                    <a class="exp-btn-ghost" href="#">Discover</a>
+                </div>
+            </div>
+
+            <div class="exp-details" id="details-odd">
+                <div class="place-box">
+                    <div class="text">Region</div>
+                </div>
+                <div class="title-box-1">
+                    <div class="title-1">TITLE</div>
+                </div>
+                <div class="title-box-2">
+                    <div class="title-2">SUBTITLE</div>
+                </div>
+                <div class="desc">
+                    Description text.
+                </div>
+                <div class="cta">
+                    <div class="exp-price">From <span class="amount">R650</span> pp</div>
+                    <a class="exp-btn-primary" href="#contact">Book</a>
+                    <a class="exp-btn-ghost" href="#">Discover</a>
+                </div>
+            </div>
+
+            <div class="exp-pagination" id="pagination">
+                <span class="pagination-label"
+                    style="margin-right: 15px; font-weight: 700; letter-spacing: 0.1em; font-size: 0.9rem;">NEXT</span>
+
+                <div class="exp-arrow exp-arrow-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </div>
+                <div class="progress-sub-container">
+                    <div class="progress-sub-background">
+                        <div class="progress-sub-foreground"></div>
+                    </div>
+                </div>
+                <div class="slide-numbers" id="slide-numbers"></div>
+            </div>
+
+            <div class="mobile-exp-wrapper">
+                <div id="exp-slider-container-mobile">
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/snorkle.png');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Snorkel</div>
+                            <div class="content-title-1">SNORKEL</div>
+                            <div class="content-title-2">SAFARI</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/photo2.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Day walk</div>
+                            <div class="content-title-1">TIDAL</div>
+                            <div class="content-title-2">POOLS</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/pics/16.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Night walk</div>
+                            <div class="content-title-1">ORIGINAL</div>
+                            <div class="content-title-2">ROCKPOOL</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/pics/10.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Kayak</div>
+                            <div class="content-title-1">SEA</div>
+                            <div class="content-title-2">KAYAKING</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dots-container" id="dotsContainer">
+                    <!-- Dots will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="exp-cover"></div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <div class="section-header" data-animate>
+                    <p class="eyebrow">Gallery</p>
+                    <h2>Moments captured</h2>
+                </div>
+            </div>
+            <div class="gallery-track-container">
+                <div class="gallery-track-adventures">
+                    <!-- Duplicated items for infinite scroll effect (assuming logic handled by CSS animation) -->
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo2.jpg" loading="lazy" alt="Rockpool life at low tide">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo3.jpg" loading="lazy" alt="Cape Town coastline views">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo4.jpg" loading="lazy" alt="Sunset over the Atlantic">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/1.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/2.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/3.jpeg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/4.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/5.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+
+                    <!-- Duplicates for loop -->
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo2.jpg" loading="lazy" alt="Rockpool life at low tide">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo3.jpg" loading="lazy" alt="Cape Town coastline views">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo4.jpg" loading="lazy" alt="Sunset over the Atlantic">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/1.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/2.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/3.jpeg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/4.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/5.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
+                    style="height: 90px; margin-bottom: 1rem; display: block;">
+                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <div style="margin-top: 1rem; opacity: 0.8;">
+                    <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
+                    <p>kirshia.govender@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="nav-group">
+                    <a href="adventures.html">Adventures</a>
+                    <a href="weather.html" class="nav-sub">Weather</a>
+                </div>
+                <div class="nav-group">
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="nav-sub">Contact</a>
+                </div>
+                <div class="nav-group">
+                    <a href="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>copyright @ Aonyx Experiences</span>
+            <div class="social-links">
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" aria-label="Instagram"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/p/Aonyx-Marine-Experiences-100095354689802/" aria-label="Facebook"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+            </div>
+            <span>Privacy Policy · Terms</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

@@ -38,6 +38,20 @@
     backdrop-filter: blur(10px);
 }
 
+.page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+}
+
+.page-hero h2.hero-subtitle {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    line-height: 1.4;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+}
+
 .page-hero p {
     color: rgba(255, 255, 255, 0.8);
 }

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Aonyx Marine Experiences</title>
+    <meta name="description"
+        content="Book your marine adventure in Cape Town. Contact us for night walks, snorkeling, and more.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="contact-page">
+    <header class="site-header" data-header>
+        <div class="navbar">
+            <a class="nav-logo" href="main.html" aria-label="Aonyx home">
+                <img src="imgs/colored-logo (1).png" alt="Aonyx logo">
+            </a>
+            <nav class="nav-links" data-nav>
+                <button class="nav-close" type="button" data-nav-close aria-label="Close Navigation">X</button>
+                <a href="adventures.html">Adventures</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="weather.html">Weather</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="contact.html" class="mobile-only-cta">Book Now</a>
+            </nav>
+            <a class="nav-cta" href="contact.html">Book now</a>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-media" style="background-image: url('imgs/photo5.jpg');" data-parallax="0.15"></div>
+        <div class="hero-content" data-animate>
+            <p class="eyebrow">Get in touch</p>
+            <h1>Start Your Adventure</h1>
+            <p>Ready to explore the tidal pools and kelp forests? Let's get you booked.</p>
+        </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+        <div class="section-inner">
+            <div class="section-header" data-animate>
+                <p class="eyebrow">Contact</p>
+                <h2>Let's Get Your Feet Wet</h2>
+                <p>Tell us your ideal time, group size, and what you're excited to see. We'll plan the perfect
+                    tide-aligned adventure.</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <a href="tel:+27762407806" class="contact-card" data-animate>
+                        <h3>Call / WhatsApp</h3>
+                        <p>+27 76 240 7806</p>
+                    </a>
+                    <a href="mailto:kirshia.govender@gmail.com" class="contact-card" data-animate>
+                        <h3>Email</h3>
+                        <p>kirshia.govender@gmail.com</p>
+                    </a>
+                    <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank"
+                        class="contact-card" data-animate>
+                        <h3>Instagram</h3>
+                        <p>@Aonyx_marine_experiences</p>
+                    </a>
+                    <a href="https://www.facebook.com/p/Aonyx-Marine-Experiences-100095354689802/" target="_blank"
+                        class="contact-card" data-animate>
+                        <h3>Facebook</h3>
+                        <p>Aonyx Marine Experiences</p>
+                    </a>
+                </div>
+                <div class="contact-form-container" data-animate>
+                    <!-- Step 1: Vibe Selection -->
+                    <div id="booking-step-1" class="booking-step">
+                        <h3 style="margin-bottom: 1.5rem;">What's your vibe?</h3>
+                        <div class="vibe-grid">
+                            <button type="button" class="vibe-card" onclick="selectVibe('Night Walk')">
+                                <span class="vibe-icon">🌙</span>
+                                <span class="vibe-name">Night Walk</span>
+                            </button>
+                            <button type="button" class="vibe-card" onclick="selectVibe('Snorkel Safari')">
+                                <span class="vibe-icon">🤿</span>
+                                <span class="vibe-name">Snorkel</span>
+                            </button>
+                            <button type="button" class="vibe-card" onclick="selectVibe('Day Walk')">
+                                <span class="vibe-icon">🦀</span>
+                                <span class="vibe-name">Day Walk</span>
+                            </button>
+                            <button type="button" class="vibe-card" onclick="selectVibe('Kayak')">
+                                <span class="vibe-icon">🚣</span>
+                                <span class="vibe-name">Kayak</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Details Form -->
+                    <form id="booking-form" class="contact-form" style="display: none;">
+                        <div style="margin-bottom: 1rem; cursor: pointer; color: var(--text-light); font-size: 0.9rem;"
+                            onclick="resetVibe()">
+                            ← Change Experience: <strong id="selected-vibe-display"
+                                style="color: var(--navy);">...</strong>
+                        </div>
+                        <input type="hidden" id="selected-tour" name="tour-type">
+
+                        <label for="name">Full name</label>
+                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
+
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
+                            required>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div>
+                                <label for="date">Date</label>
+                                <input id="date" name="date" type="date">
+                            </div>
+                            <div>
+                                <label for="guests">Guests</label>
+                                <input id="guests" name="guests" type="number" min="1" max="12" placeholder="Ex: 2">
+                            </div>
+                        </div>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any special requests?"></textarea>
+
+                        <button class="btn primary" type="submit">Request booking</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
+                    style="height: 90px; margin-bottom: 1rem; display: block;">
+                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <div style="margin-top: 1rem; opacity: 0.8;">
+                    <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
+                    <p>kirshia.govender@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="nav-group">
+                    <a href="adventures.html">Adventures</a>
+                    <a href="weather.html" class="nav-sub">Weather</a>
+                </div>
+                <div class="nav-group">
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="nav-sub">Contact</a>
+                </div>
+                <div class="nav-group">
+                    <a href="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>copyright @ Aonyx Experiences</span>
+            <div class="social-links">
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" aria-label="Instagram"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/p/Aonyx-Marine-Experiences-100095354689802/" aria-label="Facebook"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+            </div>
+            <span>Privacy Policy · Terms</span>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
