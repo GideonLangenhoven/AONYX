@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cape Town Marine Adventures | Night Rock Pool & Snorkel | Aonyx</title>
+    <meta name="description" content="Compare Cape Town marine adventures: Night Rock Pool Tours, Snorkel Safaris, Day Rock Pool Walks, and Sea Kayaking. Small groups, biologist-led.">
+    <link rel="canonical" href="https://aonyx.co.za/adventures.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cape Town Marine Adventures | Night Rock Pool & Snorkel | Aonyx">
+    <meta property="og:description" content="Compare Cape Town marine adventures: Night Rock Pool Tours, Snorkel Safaris, Day Rock Pool Walks, and Sea Kayaking. Small groups, biologist-led.">
+    <meta property="og:url" content="https://aonyx.co.za/adventures.html">
+    <meta property="og:image" content="imgs/photo4.jpg">
+    <meta property="og:site_name" content="Aonyx">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cape Town Marine Adventures | Night Rock Pool & Snorkel | Aonyx">
+    <meta name="twitter:description" content="Compare Cape Town marine adventures: Night Rock Pool Tours, Snorkel Safaris, Day Rock Pool Walks, and Sea Kayaking. Small groups, biologist-led.">
+    <meta name="twitter:image" content="imgs/photo4.jpg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <style>
+        /* Specific styles for this page if needed */
+        .adventures-hero {
+            height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Recreating gallery track styles locally or ensuring they exist in style.css */
+        .gallery-track-container {
+            width: 100%;
+            overflow: hidden;
+            padding: 4rem 0;
+            background: var(--sand);
+        }
+
+        .gallery-track-adventures {
+            display: flex;
+            gap: 2rem;
+            /* Adjust based on desired spacing */
+            width: max-content;
+            animation: galleryScroll 86s linear infinite;
+        }
+
+        .gallery-track-adventures:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes galleryScroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Ensure specific exp-card styling works if extracted from main context */
+        .exp-card-static {
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header" data-header>
+        <div class="navbar">
+            <a class="nav-logo" href="main.html" aria-label="Aonyx home">
+                <img src="imgs/colored-logo (1).png" alt="Aonyx logo">
+            </a>
+            <nav class="nav-links" data-nav>
+                <button class="nav-close" type="button" data-nav-close aria-label="Close Navigation">X</button>
+                <a href="adventures.html" class="active">Adventures</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="weather.html">Weather</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="mobile-only-cta">Check Availability</a>
+            </nav>
+            <a class="nav-cta" href="contact.html">Check Availability</a>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Mobile Hero (Hidden on Desktop) -->
+        <section class="page-hero mobile-adventures-hero">
+            <div class="hero-media" style="background-image: url('imgs/photo4.jpg');" data-parallax="0.15"></div>
+            <div class="hero-content" data-animate>
+                <p class="eyebrow">Discover</p>
+                <h1>Explore the Unseen: Marine Biologist-Led Adventures in Cape Town.</h1>
+                <p>Explore the Cape's living coastline — kelp forests, hidden rock pools, and ocean secrets revealed by
+                    expert guides.</p>
+            </div>
+        </section>
+
+        <section class="section" id="experiences"
+            style="padding: 0; height: 100vh; background-color: #07141d; color: var(--white); position: relative; overflow: hidden;">
+            <div class="exp-indicator"></div>
+            <div id="exp-slider-container"></div>
+
+            <div class="exp-details" id="details-even">
+                <div class="place-box">
+                    <div class="text">Snorkel</div>
+                </div>
+                <div class="title-box-1">
+                    <div class="title-1">SNORKEL</div>
+                </div>
+                <div class="title-box-2">
+                    <div class="title-2">SAFARI</div>
+                </div>
+                <div class="desc">
+                    Float through the magical kelp forests. We'll guide you through the underwater world, spotting reefs
+                    and wildlife in the clear Atlantic.
+                </div>
+                <div class="exp-quick-info" aria-label="Quick tour info">
+                    <div class="info-item">
+                        <span class="label">Duration</span>
+                        <span class="value" data-info="duration">2 Hours</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Intensity</span>
+                        <span class="value" data-info="intensity">Low/Medium</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Group Size</span>
+                        <span class="value" data-info="group">Max 8</span>
+                    </div>
+                </div>
+                <div class="cta">
+                    <div class="exp-price">From <span class="amount">R850</span> pp</div>
+                    <a class="exp-btn-primary" href="#contact">Check Availability</a>
+                    <a class="exp-btn-ghost" href="snorkel.html">Discover</a>
+                </div>
+            </div>
+
+            <div class="exp-details" id="details-odd">
+                <div class="place-box">
+                    <div class="text">Snorkel</div>
+                </div>
+                <div class="title-box-1">
+                    <div class="title-1">SNORKEL</div>
+                </div>
+                <div class="title-box-2">
+                    <div class="title-2">SAFARI</div>
+                </div>
+                <div class="desc">
+                    Float through the magical kelp forests. We'll guide you through the underwater world, spotting reefs
+                    and wildlife in the clear Atlantic.
+                </div>
+                <div class="exp-quick-info" aria-label="Quick tour info">
+                    <div class="info-item">
+                        <span class="label">Duration</span>
+                        <span class="value" data-info="duration">2 Hours</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Intensity</span>
+                        <span class="value" data-info="intensity">Low/Medium</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Group Size</span>
+                        <span class="value" data-info="group">Max 8</span>
+                    </div>
+                </div>
+                <div class="cta">
+                    <div class="exp-price">From <span class="amount">R850</span> pp</div>
+                    <a class="exp-btn-primary" href="#contact">Check Availability</a>
+                    <a class="exp-btn-ghost" href="snorkel.html">Discover</a>
+                </div>
+            </div>
+
+            <div class="exp-pagination" id="pagination">
+                <span class="pagination-label"
+                    style="margin-right: 15px; font-weight: 700; letter-spacing: 0.1em; font-size: 0.9rem;">NEXT</span>
+
+                <div class="exp-arrow exp-arrow-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </div>
+                <div class="progress-sub-container">
+                    <div class="progress-sub-background">
+                        <div class="progress-sub-foreground"></div>
+                    </div>
+                </div>
+                <div class="slide-numbers" id="slide-numbers"></div>
+            </div>
+
+            <div class="mobile-exp-wrapper">
+                <div id="exp-slider-container-mobile">
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/snorkle.png');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Snorkel</div>
+                            <div class="content-title-1">SNORKEL</div>
+                            <div class="content-title-2">SAFARI</div>
+                            <div class="content-desc">Float through majestic kelp forests.</div>
+                            <div class="exp-card-quick-info">
+                                <span>2 Hours</span>
+                                <span>Low/Medium</span>
+                                <span>Max 8</span>
+                            </div>
+                            <div class="content-price">From R850 pp</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/photo2.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Day walk</div>
+                            <div class="content-title-1">TIDAL</div>
+                            <div class="content-title-2">POOLS</div>
+                            <div class="content-desc">Explore the shoreline's hidden secrets.</div>
+                            <div class="exp-card-quick-info">
+                                <span>2 Hours</span>
+                                <span>Low/Medium</span>
+                                <span>Max 8</span>
+                            </div>
+                            <div class="content-price">From R450 pp</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/pics/16.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Night walk</div>
+                            <div class="content-title-1">ORIGINAL</div>
+                            <div class="content-title-2">ROCKPOOL</div>
+                            <div class="content-desc">Discover glowing tidepools under the stars.</div>
+                            <div class="exp-card-quick-info">
+                                <span>2 Hours</span>
+                                <span>Low/Medium</span>
+                                <span>Max 8</span>
+                            </div>
+                            <div class="content-price">From R650 pp</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/pics/10.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Kayak</div>
+                            <div class="content-title-1">SEA</div>
+                            <div class="content-title-2">KAYAKING</div>
+                            <div class="content-desc">Paddle the clear Atlantic waters.</div>
+                            <div class="exp-card-quick-info">
+                                <span>2 Hours</span>
+                                <span>Low/Medium</span>
+                                <span>Max 8</span>
+                            </div>
+                            <div class="content-price">From R550 pp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dots-container" id="dotsContainer">
+                    <!-- Dots will be populated by JS -->
+                </div>
+            </div>
+
+            <div class="exp-cover"></div>
+        </section>
+
+        <section class="section">
+            <div class="section-inner">
+                <div class="section-header" data-animate>
+                    <p class="eyebrow">Gallery</p>
+                    <h2>Moments captured</h2>
+                </div>
+            </div>
+            <div class="gallery-track-container">
+                <div class="gallery-track-adventures">
+                    <!-- Duplicated items for infinite scroll effect (assuming logic handled by CSS animation) -->
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo2.jpg" loading="lazy" alt="Rockpool life at low tide">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo3.jpg" loading="lazy" alt="Cape Town coastline views">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo4.jpg" loading="lazy" alt="Sunset over the Atlantic">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/1.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/2.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/3.jpeg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/4.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/5.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+
+                    <!-- Duplicates for loop -->
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo2.jpg" loading="lazy" alt="Rockpool life at low tide">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo3.jpg" loading="lazy" alt="Cape Town coastline views">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/photo4.jpg" loading="lazy" alt="Sunset over the Atlantic">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/1.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/2.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/3.jpeg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/4.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                    <div class="gallery-item" style="min-width: 360px; height: 400px;">
+                        <img src="imgs/pics/5.jpg" loading="lazy" alt="Gallery image">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <a href="https://wa.me/27762407806" class="floating-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path
+                d="M16.02 5.32c-5.87 0-10.64 4.77-10.64 10.64 0 1.87.5 3.7 1.46 5.32L5 27l5.92-1.55a10.58 10.58 0 0 0 5.1 1.31h.01c5.87 0 10.64-4.77 10.64-10.64 0-2.84-1.1-5.52-3.1-7.52a10.56 10.56 0 0 0-7.55-3.28zm6.16 15.44c-.26.73-1.3 1.35-2 1.45-.49.07-1.1.1-1.77-.11-.41-.13-.94-.31-1.63-.6-2.86-1.24-4.73-4.09-4.87-4.28-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.33-.3.5-.15.18-.32.39-.46.52-.15.14-.3.3-.13.6.18.29.78 1.29 1.68 2.1 1.16 1.05 2.13 1.37 2.42 1.52.3.15.47.13.65-.08.18-.2.74-.86.94-1.15.2-.29.39-.24.66-.14.26.1 1.67.79 1.96.94.29.15.48.22.55.34.07.13.07.73-.19 1.46z">
+            </path>
+        </svg>
+    </a>
+    <a href="contact.html" class="floating-cta" aria-label="Check availability for your adventure">
+        Check Availability
+    </a>
+
+<footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
+                    style="height: 90px; margin-bottom: 1rem; display: block;">
+                <p>Unlocking the ocean's secrets with the experts who know them best.</p>
+                <div style="margin-top: 1rem; opacity: 0.8;">
+                    <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
+                    <p>kirshia.govender@gmail.com</p>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <div class="nav-group">
+                    <a href="adventures.html">Adventures</a>
+                    <a href="weather.html" class="nav-sub">Weather</a>
+                </div>
+                <div class="nav-group">
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="nav-sub">Contact</a>
+                </div>
+                <div class="nav-group">
+                    <a href="gallery.html">Gallery</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>copyright @ Aonyx Experiences</span>
+            <div class="social-links">
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" aria-label="Instagram"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+                        </path>
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/p/Aonyx-Marine-Experiences-100095354689802/" aria-label="Facebook"
+                    target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </a>
+            </div>
+            <span>Privacy Policy · Terms</span>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>

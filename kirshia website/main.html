@@ -4,13 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anoynx Marine Experiences</title>
+    <title>Night Rock Pool Tours & Snorkel Safaris Cape Town | Aonyx</title>
+    <meta name="description" content="Night Rock Pool Tours & Snorkel Safaris in Cape Town. Marine biologist-led, small groups, tide-timed adventures with Aonyx.">
+    <link rel="canonical" href="https://aonyx.co.za/main.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Night Rock Pool Tours & Snorkel Safaris Cape Town | Aonyx">
+    <meta property="og:description" content="Night Rock Pool Tours & Snorkel Safaris in Cape Town. Marine biologist-led, small groups, tide-timed adventures with Aonyx.">
+    <meta property="og:url" content="https://aonyx.co.za/main.html">
+    <meta property="og:image" content="imgs/pics/16.jpg">
+    <meta property="og:site_name" content="Aonyx">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Night Rock Pool Tours & Snorkel Safaris Cape Town | Aonyx">
+    <meta name="twitter:description" content="Night Rock Pool Tours & Snorkel Safaris in Cape Town. Marine biologist-led, small groups, tide-timed adventures with Aonyx.">
+    <meta name="twitter:image" content="imgs/pics/16.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Aonyx Marine Experiences",
+      "url": "https://aonyx.co.za",
+      "image": "imgs/colored-logo (1).png",
+      "description": "Premium guided night rock pool tours, snorkel safaris, and marine biology adventures in Cape Town.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Cape Town",
+        "addressCountry": "ZA"
+      },
+      "priceRange": "R450 - R850",
+      "telephone": "+27762407806",
+      "email": "kirshia.govender@gmail.com"
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 </head>
 
 <body>
@@ -20,13 +52,20 @@
                 <img src="imgs/colored-logo (1).png" alt="Anoynx logo">
             </a>
             <nav class="nav-links" data-nav>
-                <a href="how-it-works.html">How it works</a>
+                <button class="nav-close" type="button" data-nav-close aria-label="Close Navigation">X</button>
+                <a href="adventures.html">Adventures</a>
+                <a href="about.html">About</a>
                 <a href="gallery.html">Gallery</a>
-                <a href="#experiences">Experiences</a>
-                <a href="#contact">Contact</a>
+                <a href="weather.html">Weather</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="mobile-only-cta">Check Availability</a>
             </nav>
-            <a class="nav-cta" href="#contact">Book now</a>
-            <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+            <a class="nav-cta" href="contact.html">Check Availability</a>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -40,65 +79,100 @@
             <div class="hero_overlay" aria-hidden="true"></div>
             <div class="hero_content" data-animate>
 
-                <h1>Aonyx Marine Experiences</h1>
-                <p>Learn from the specialists (our marine biologists). Join us for rockpool walks, snorkel safaris, and
-                    adventures that reveal the magic of the Cape.</p>
+                <h1>AONYX MARINE EXPERIENCES</h1>
+                <h2>Marine Biologist-Led Adventures in Cape Town.</h2>
                 <div class="hero_actions">
-                    <a class="btn primary" href="#contact">Book now</a>
+                    <a class="btn primary" href="#contact">Check Availability</a>
+                    <div class="urgency-badge" id="urgency-badge">
+                        <span class="pulsing-dot"></span>
+                        Next Night Walk: <span id="next-tour-date">Loading...</span>
+                    </div>
                 </div>
+                <div class="hero_rating">
+                    <div class="stars">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#f5c15b"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                        </svg>
+                    </div>
+                    <span>4.9/5 on TripAdvisor</span>
+                </div>
+            </div>
             </div>
 
-            <div class="hero_strip" aria-hidden="true">
-                <div class="hero_strip_track">
-                    <span>Marine Biologist Led</span>
-                    <span>Ocean Education</span>
-                    <span>Night Rock Pool Tours</span>
-                    <span>Snorkel Safaris</span>
-                    <span>Sea Kayaking</span>
-                    <span>Conservation</span>
-                </div>
-                <div class="hero_strip_track">
-                    <span>Marine Biologist Led</span>
-                    <span>Ocean Education</span>
-                    <span>Night Rock Pool Tours</span>
-                    <span>Snorkel Safaris</span>
-                    <span>Sea Kayaking</span>
-                    <span>Conservation</span>
-                </div>
-            </div>
+
         </section>
+
+
+
+        <!-- Current Conditions / Tide Widget -->
+
 
         <section class="section" id="about">
             <div class="section-inner">
                 <div class="section-header" data-animate>
-                    <p class="eyebrow">About us</p>
-                    <h2>Meet the Ocean Experts</h2>
-                    <p>We combine adventure with science to show you the hidden wonders of the Atlantic coastline. Come
-                        see the sea differently.</p>
+
+
                 </div>
                 <div class="about-grid">
-                    <div class="about-card" data-animate>
-                        <h3 style="margin-bottom: 1rem;">Explore the Cape's Living Coastline</h3>
-                        <p>Aonyx Marine Experiences invites you to explore the hidden wonders of the Table Mountain
-                            National Marine Park. We are dedicated to revealing the vibrant ecosystem of the Atlantic
-                            Seaboard through guided adventures that blend science with exploration.</p>
-                        <p style="margin-top: 1rem;">From our original night rock pool tours to immersive snorkel
-                            safaris in the magical kelp forests, our experiences are led by qualified marine biologists
-                            who ensure every tour is safe, educational, and unforgettable. Join us to discover the
-                            ocean's secrets and see Cape Town from a refreshing new perspective.</p>
-                        <ul class="about-list">
-                            <li>Marine experiences with marine biologists</li>
-                            <li>Day & Night rock pool walks</li>
-                            <li>Original Night Rock Pool Tours in CPT</li>
-                            <li>Tidal pool Snorkeling</li>
-                            <li>Sea Kayaking (with Cape Kayak Adventures)</li>
-                        </ul>
+                    <div class="feature-item">
+                        <div class="feature-circle">
+                            <img src="imgs/pics/icon_marine_bio.png" alt="Marine Biologist Led">
+                        </div>
+                        <h3>Marine Biologist Led</h3>
+                        <p>Learn from the experts.</p>
                     </div>
-                    <div class="about-image" style="background-image: url('imgs/photo2.jpg');" data-animate
-                        data-parallax="0.18"></div>
+                    <div class="feature-item">
+                        <div class="feature-circle">
+                            <img src="imgs/pics/icon_night_tour.png" alt="Original Night Tours">
+                        </div>
+                        <h3>Original Night Tours</h3>
+                        <p>Discover the hidden coast.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-circle">
+                            <img src="imgs/pics/icon_adventurer.png" alt="500+ Happy Adventurers">
+                        </div>
+                        <h3>500+ Happy Adventurers</h3>
+                        <p>Join our community.</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-circle">
+                            <img src="imgs/pics/icon_guide.png" alt="Certified Guides">
+                        </div>
+                        <h3>Certified Guides</h3>
+                        <p>Safe and professional.</p>
+                    </div>
                 </div>
+
+
+
+
             </div>
         </section>
+
+
 
 
 
@@ -124,7 +198,8 @@
                     Description text.
                 </div>
                 <div class="cta">
-                    <a class="exp-btn-primary" href="#contact">Book</a>
+                    <div class="exp-price">From <span class="amount">R650</span> pp</div>
+                    <a class="exp-btn-primary" href="#contact">Check Availability</a>
                     <a class="exp-btn-ghost" href="#">Discover</a>
                 </div>
             </div>
@@ -143,17 +218,16 @@
                     Description text.
                 </div>
                 <div class="cta">
-                    <a class="exp-btn-primary" href="#contact">Book</a>
+                    <div class="exp-price">From <span class="amount">R650</span> pp</div>
+                    <a class="exp-btn-primary" href="#contact">Check Availability</a>
                     <a class="exp-btn-ghost" href="#">Discover</a>
                 </div>
             </div>
 
             <div class="exp-pagination" id="pagination">
-                <div class="exp-arrow exp-arrow-left">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                    </svg>
-                </div>
+                <span class="pagination-label"
+                    style="margin-right: 15px; font-weight: 700; letter-spacing: 0.1em; font-size: 0.9rem;">NEXT</span>
+
                 <div class="exp-arrow exp-arrow-right">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
@@ -164,152 +238,237 @@
                         <div class="progress-sub-foreground"></div>
                     </div>
                 </div>
-                <div class="slide-numbers" id="slide-numbers"></div>
+            </div>
+
+            <div class="mobile-exp-wrapper">
+                <div id="exp-slider-container-mobile">
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/snorkle.png');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Snorkel</div>
+                            <div class="content-title-1">SNORKEL</div>
+                            <div class="content-title-2">SAFARI</div>
+                            <div class="content-desc">Float through majestic kelp forests.</div>
+                            <div class="content-price">From R850 pp</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/photo2.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Day walk</div>
+                            <div class="content-title-1">TIDAL</div>
+                            <div class="content-title-2">POOLS</div>
+                            <div class="content-desc">Explore the shoreline's hidden secrets.</div>
+                            <div class="content-price">From R450 pp</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/pics/16.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Night walk</div>
+                            <div class="content-title-1">ORIGINAL</div>
+                            <div class="content-title-2">ROCKPOOL</div>
+                            <div class="content-desc">Discover glowing tidepools under the stars.</div>
+                            <div class="content-price">From R650 pp</div>
+                        </div>
+                    </div>
+                    <div class="exp-card-wrapper">
+                        <div class="exp-card-mobile" style="background-image: url('imgs/pics/10.jpg');"></div>
+                        <div class="exp-card-content-mobile">
+                            <div class="content-place">Kayak</div>
+                            <div class="content-title-1">SEA</div>
+                            <div class="content-title-2">KAYAKING</div>
+                            <div class="content-desc">Paddle the clear Atlantic waters.</div>
+                            <div class="content-price">From R550 pp</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dots-container" id="dotsContainer">
+                    <!-- Dots will be populated by JS -->
+                </div>
+            </div>
+            <div class="slide-numbers" id="slide-numbers"></div>
             </div>
 
             <div class="exp-cover"></div>
         </section>
 
-        <section class="section" id="gallery">
-            <div class="section-inner">
-                <div class="section-header" data-animate>
-                    <p class="eyebrow">Gallery</p>
-                    <h2>Moments from the shoreline</h2>
-                    <p>Snapshots from our adventures. From calm sunrise paddles to finding critters in the rock pools.
-                    </p>
-                </div>
+        <section class="section" style="padding-top: 12rem; padding-bottom: 2rem; background: var(--white);">
+            <div class="section-inner" style="text-align: center; margin-bottom: 2rem;">
+                <p class="eyebrow" style="color: var(--accent-dark);">@AONYX_MARINE_EXPERIENCES</p>
+                <h3>Follow the adventure</h3>
             </div>
-            <div class="gallery-track-container">
-                <div class="gallery-track">
-
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/photo2.jpg" alt="Rockpool life at low tide">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/photo3.jpg" alt="Cape Town coastline views">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/photo4.jpg" alt="Sunset over the Atlantic">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/1.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/2.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/3.jpeg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/4.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/5.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/6.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/7.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/8.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/9.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/11.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/13.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/14.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/15.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/16.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/18.jpg" alt="Gallery image">
-                    </div>
-                    <div class="gallery-item" data-gallery-item data-animate>
-                        <img src="imgs/pics/20.jpg" alt="Gallery image">
-                    </div>
-                </div>
-            </div>
-            <div class="section-inner">
-                <div style="margin-top: 2rem;">
-                    <a class="btn ghost dark" href="gallery.html">View full gallery</a>
-                </div>
+            <!-- Instagram Grid (Static Placeholder for reliability) -->
+            <div class="insta-grid">
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/1.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/4.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/9.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/15.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/16.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
+                <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank" class="insta-item"
+                    style="background-image: url('imgs/pics/10.jpg');">
+                    <div class="insta-overlay"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg></div>
+                </a>
             </div>
         </section>
 
-        <section class="section contact-section" id="contact">
+        <section class="section alt" id="testimonials">
             <div class="section-inner">
                 <div class="section-header" data-animate>
-                    <p class="eyebrow">Contact</p>
-                    <h2>Let's Get Your Feet Wet</h2>
-                    <p>Tell us your ideal time, group size, and what you're excited to see. We'll plan the perfect
-                        tide-aligned adventure.</p>
+                    <p class="eyebrow">Reviews</p>
+                    <h2>What our adventurers say</h2>
                 </div>
-                <div class="contact-grid">
-                    <div>
-                        <a href="tel:+27762407806" class="contact-card" data-animate>
-                            <h3>Call / WhatsApp</h3>
-                            <p>+27 76 240 7806</p>
-                        </a>
-                        <a href="mailto:kirshia.govender@gmail.com" class="contact-card" data-animate>
-                            <h3>Email</h3>
-                            <p>kirshia.govender@gmail.com</p>
-                        </a>
-                        <a href="https://www.instagram.com/aonyx_marine_experiences/?hl=en" target="_blank"
-                            class="contact-card" data-animate>
-                            <h3>Instagram</h3>
-                            <p>@Aonyx_marine_experiences</p>
-                        </a>
-                        <a href="https://www.facebook.com/p/Aonyx-Marine-Experiences-100095354689802/" target="_blank"
-                            class="contact-card" data-animate>
-                            <h3>Facebook</h3>
-                            <p>Aonyx Marine Experiences</p>
-                        </a>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card" data-animate>
+                        <div class="tour-tag">Night Rock Pool Tour</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"An absolute must-do in Cape Town! The night walk was unlike anything I've ever
+                            experienced. Seeing the ocean glow was magical."</p>
+                        <div class="author">
+                            <div class="author-avatar" style="background-color: var(--accent);">ST</div>
+                            <div>
+                                <p class="name">Sarah T.</p>
+                                <small>Night Walk</small>
+                            </div>
+                        </div>
                     </div>
-                    <form class="contact-form" data-animate>
-                        <label for="name">Full name</label>
-                        <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
-
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
-                            required>
-
-
-
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4"
-                            placeholder="Tell us what you're excited about."></textarea>
-
-                        <button class="btn primary" type="submit">Request booking</button>
-                    </form>
+                    <div class="testimonial-card" data-animate>
+                        <div class="tour-tag">Snorkel Safari</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Highly recommend the snorkel safari. I was nervous about the cold water but
+                            the wetsuits were perfect and the kelp forests are otherworldly."</p>
+                        <div class="author">
+                            <div class="author-avatar" style="background-color: #69b5d6;">DM</div>
+                            <div>
+                                <p class="name">David M.</p>
+                                <small>Snorkel Safari</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card" data-animate>
+                        <div class="tour-tag">Day Rock Pool Walk</div>
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Learned so much from Kirshia. Her passion for marine biology is infectious. A
+                            fantastic educational experience for the whole family."</p>
+                        <div class="author">
+                            <div class="author-avatar" style="background-color: #f1f5f9; color: var(--navy);">JK</div>
+                            <div>
+                                <p class="name">Jessica K.</p>
+                                <small>Rockpool Walk</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Video Testimonials Placeholder -->
+            <div class="video-testimonials" style="margin-top: 4rem;">
+
+                <div class="video-feature" style="margin-top: 2rem;">
+                    <div class="video-container video-parallax"
+                        style="width: 100%; height: 80vh; max-height: 800px; background: #000; border-radius: var(--radius-lg); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                        <div class="video-overlay" aria-hidden="true"></div>
+                        <video class="video-media" src="imgs/videos/experience-3.mp4" controls playsinline
+                            style="width: 100%; height: 100%; object-fit: cover;"></video>
+                    </div>
+
+                </div>
+            </div>
+            </div>
         </section>
+
+
+
+        <!-- Instagram Feed Section -->
+
     </main>
+
+    <a href="https://wa.me/27762407806" class="floating-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path
+                d="M16.02 5.32c-5.87 0-10.64 4.77-10.64 10.64 0 1.87.5 3.7 1.46 5.32L5 27l5.92-1.55a10.58 10.58 0 0 0 5.1 1.31h.01c5.87 0 10.64-4.77 10.64-10.64 0-2.84-1.1-5.52-3.1-7.52a10.56 10.56 0 0 0-7.55-3.28zm6.16 15.44c-.26.73-1.3 1.35-2 1.45-.49.07-1.1.1-1.77-.11-.41-.13-.94-.31-1.63-.6-2.86-1.24-4.73-4.09-4.87-4.28-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.33-.3.5-.15.18-.32.39-.46.52-.15.14-.3.3-.13.6.18.29.78 1.29 1.68 2.1 1.16 1.05 2.13 1.37 2.42 1.52.3.15.47.13.65-.08.18-.2.74-.86.94-1.15.2-.29.39-.24.66-.14.26.1 1.67.79 1.96.94.29.15.48.22.55.34.07.13.07.73-.19 1.46z">
+            </path>
+        </svg>
+    </a>
+    <a href="#contact" class="floating-cta" aria-label="Check availability for your adventure">
+        Check Availability
+    </a>
 
     <footer class="footer">
         <div class="footer-inner">
             <div>
                 <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
                     style="height: 90px; margin-bottom: 1rem; display: block;">
-                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <p>Unlocking the ocean's secrets with the experts who know them best.</p>
+                <div style="margin-top: 1rem; opacity: 0.8;">
+                    <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
+                    <p>kirshia.govender@gmail.com</p>
+                </div>
             </div>
             <div class="footer-nav">
-                <a href="how-it-works.html">How it works</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="#experiences">Experiences</a>
-                <a href="#contact">Contact</a>
+                <div class="nav-group">
+                    <a href="adventures.html">Adventures</a>
+                    <a href="weather.html" class="nav-sub">Weather</a>
+                </div>
+                <div class="nav-group">
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="nav-sub">Contact</a>
+                </div>
+                <div class="nav-group">
+                    <a href="gallery.html">Gallery</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -352,7 +511,7 @@
         <button class="lightbox_nav next" type="button" data-lightbox-next>Next</button>
     </div>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>

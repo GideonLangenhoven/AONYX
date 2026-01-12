@@ -4,31 +4,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Night Walk | Anoynx Marine Experiences</title>
+    <title>Night Rock Pool Tours Cape Town | Biologist-Led | Aonyx</title>
+    <meta name="description" content="Discover bioluminescence on a marine biologist-led Night Rock Pool Tour in Cape Town. Small groups, tide-timed, unforgettable.">
+    <link rel="canonical" href="https://aonyx.co.za/night.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Night Rock Pool Tours Cape Town | Biologist-Led | Aonyx">
+    <meta property="og:description" content="Discover bioluminescence on a marine biologist-led Night Rock Pool Tour in Cape Town. Small groups, tide-timed, unforgettable.">
+    <meta property="og:url" content="https://aonyx.co.za/night.html">
+    <meta property="og:image" content="components/scroll/imgs/nightWalk.png">
+    <meta property="og:site_name" content="Aonyx">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Night Rock Pool Tours Cape Town | Biologist-Led | Aonyx">
+    <meta name="twitter:description" content="Discover bioluminescence on a marine biologist-led Night Rock Pool Tour in Cape Town. Small groups, tide-timed, unforgettable.">
+    <meta name="twitter:image" content="components/scroll/imgs/nightWalk.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "Night Rock Pool Tours in Cape Town",
+      "description": "Marine biologist-led Night Rock Pool Tours in Cape Town. Small groups, tide-timed, bioluminescence.",
+      "image": [
+        "components/scroll/imgs/nightWalk.png"
+      ],
+      "provider": {
+        "@type": "Organization",
+        "name": "Aonyx Marine Experiences",
+        "url": "https://aonyx.co.za",
+        "telephone": "+27762407806"
+      },
+      "areaServed": {
+        "@type": "Place",
+        "name": "Cape Town, South Africa"
+      },
+      "duration": "PT2H30M",
+      "offers": {
+        "@type": "Offer",
+        "price": "650",
+        "priceCurrency": "ZAR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://aonyx.co.za/night.html"
+      }
+    }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 </head>
 
-<body>
+<body class="theme-dark has-mobile-booking">
     <header class="site-header" data-header>
         <div class="navbar">
             <a class="nav-logo" href="main.html" aria-label="Anoynx home">
                 <img src="imgs/colored-logo (1).png" alt="Anoynx logo">
             </a>
             <nav class="nav-links" data-nav>
-                <a href="how-it-works.html">How it works</a>
+                <button class="nav-close" type="button" data-nav-close aria-label="Close Navigation">X</button>
+                <a href="adventures.html">Adventures</a>
+                <a href="about.html">About</a>
                 <a href="gallery.html">Gallery</a>
-                <a href="main.html#experiences">Experiences</a>
-                <a href="main.html#contact">Contact</a>
+                <a href="weather.html">Weather</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="mobile-only-cta">Check Availability</a>
             </nav>
-            <a class="nav-cta" href="main.html#contact">Book now</a>
-            <button class="nav-toggle" type="button" data-nav-toggle>Menu</button>
+            <a class="nav-cta" href="contact.html">Check Availability</a>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
         </div>
     </header>
 
@@ -61,6 +110,11 @@
                 <div class="detail-card" data-animate>
                     <h3>Group size</h3>
                     <p>Max 8 people (keeping it quiet and personal).</p>
+                </div>
+                <div class="detail-card" data-animate>
+                    <h3>Price</h3>
+                    <p><span style="color: var(--accent); font-weight: 700; font-size: 1.1rem;">R650</span> per person
+                    </p>
                 </div>
             </div>
             <ul class="detail-list">
@@ -99,18 +153,49 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <div class="mobile-booking-bar" aria-label="Quick booking bar">
+        <div class="booking-price">
+            <span class="label">From</span>
+            <span class="value">R650</span>
+            <span class="suffix">pp</span>
+        </div>
+        <a class="btn primary booking-button" href="main.html#contact">Book</a>
+    </div>
+
+        <a href="https://wa.me/27762407806" class="floating-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path
+                d="M16.02 5.32c-5.87 0-10.64 4.77-10.64 10.64 0 1.87.5 3.7 1.46 5.32L5 27l5.92-1.55a10.58 10.58 0 0 0 5.1 1.31h.01c5.87 0 10.64-4.77 10.64-10.64 0-2.84-1.1-5.52-3.1-7.52a10.56 10.56 0 0 0-7.55-3.28zm6.16 15.44c-.26.73-1.3 1.35-2 1.45-.49.07-1.1.1-1.77-.11-.41-.13-.94-.31-1.63-.6-2.86-1.24-4.73-4.09-4.87-4.28-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.33-.3.5-.15.18-.32.39-.46.52-.15.14-.3.3-.13.6.18.29.78 1.29 1.68 2.1 1.16 1.05 2.13 1.37 2.42 1.52.3.15.47.13.65-.08.18-.2.74-.86.94-1.15.2-.29.39-.24.66-.14.26.1 1.67.79 1.96.94.29.15.48.22.55.34.07.13.07.73-.19 1.46z">
+            </path>
+        </svg>
+    </a>
+    <a href="contact.html" class="floating-cta" aria-label="Check availability for your adventure">
+        Check Availability
+    </a>
+
+<footer class="footer">
         <div class="footer-inner">
             <div>
                 <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
                     style="height: 90px; margin-bottom: 1rem; display: block;">
-                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <p>Unlocking the ocean's secrets with the experts who know them best.</p>
+                <div style="margin-top: 1rem; opacity: 0.8;">
+                    <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
+                    <p>kirshia.govender@gmail.com</p>
+                </div>
             </div>
             <div class="footer-nav">
-                <a href="main.html">Home</a>
-                <a href="how-it-works.html">How it works</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="main.html#contact">Contact</a>
+                <div class="nav-group">
+                    <a href="adventures.html">Adventures</a>
+                    <a href="weather.html" class="nav-sub">Weather</a>
+                </div>
+                <div class="nav-group">
+                    <a href="about.html">About</a>
+                    <a href="contact.html" class="nav-sub">Contact</a>
+                </div>
+                <div class="nav-group">
+                    <a href="gallery.html">Gallery</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
@@ -145,7 +230,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>

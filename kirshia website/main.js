@@ -3,6 +3,7 @@
   const header = document.querySelector("[data-header]");
   const nav = document.querySelector("[data-nav]");
   const navToggle = document.querySelector("[data-nav-toggle]");
+  const navClose = document.querySelector("[data-nav-close]");
 
   const toggleNav = () => {
     if (!nav) {
@@ -21,6 +22,10 @@
   };
 
   navToggle?.addEventListener("click", toggleNav);
+  navClose?.addEventListener("click", () => {
+    closeNav();
+    navToggle?.classList.remove("is-active");
+  });
   nav?.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", closeNav);
   });
@@ -30,6 +35,8 @@
       return;
     }
     header.classList.toggle("is-scrolled", window.scrollY > 20);
+    nav.classList.remove("is-open");
+    document.body.classList.remove("no-scroll");
   };
 
   window.addEventListener("scroll", handleScroll);
@@ -134,6 +141,23 @@
       });
     });
 
+    // Custom animation for About Grid Feature Items
+    const featureItems = gsap.utils.toArray(".feature-item");
+    if (featureItems.length > 0) {
+      gsap.from(featureItems, {
+        y: 50,
+        opacity: 0,
+        duration: 1.6,
+        stagger: 0.4, // Reveal one by one, reverse one by one on scroll up
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: ".about-grid",
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    }
+
     const hero = document.querySelector(".hero_content");
     if (hero) {
       gsap.from(hero.children, {
@@ -171,6 +195,62 @@
       });
     });
 
+    const videoParallax = document.querySelector(".video-parallax");
+    if (videoParallax) {
+      const videoMedia = videoParallax.querySelector(".video-media");
+      const videoOverlay = videoParallax.querySelector(".video-overlay");
+
+      gsap.fromTo(
+        videoParallax,
+        { clipPath: "inset(12% 8% 12% 8%)" },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: videoParallax,
+            start: "top 80%",
+            end: "center 60%",
+            scrub: true,
+          },
+        }
+      );
+
+      if (videoMedia) {
+        gsap.fromTo(
+          videoMedia,
+          { y: 40, scale: 1.05 },
+          {
+            y: -40,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: videoParallax,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      if (videoOverlay) {
+        gsap.fromTo(
+          videoOverlay,
+          { opacity: 0.6 },
+          {
+            opacity: 0.2,
+            ease: "none",
+            scrollTrigger: {
+              trigger: videoParallax,
+              start: "top 80%",
+              end: "center 60%",
+              scrub: true,
+            },
+          }
+        );
+      }
+    }
+
     setupExperiencesSlider();
     setupHeroSlider();
   };
@@ -180,24 +260,12 @@
     if (!container) return;
 
     const images = [
-      "imgs/photo4.jpg",
-      "imgs/photo6.jpg",
       "imgs/pics/1.jpg",
       "imgs/pics/2.jpg",
-      "imgs/pics/3.jpeg",
-      "imgs/pics/4.jpg",
       "imgs/pics/5.jpg",
-      "imgs/pics/6.jpg",
-      "imgs/pics/7.jpg",
-      "imgs/pics/8.jpg",
       "imgs/pics/9.jpg",
-      "imgs/pics/11.jpg",
-      "imgs/pics/13.jpg",
-      "imgs/pics/14.jpg",
-      "imgs/pics/15.jpg",
-      "imgs/pics/16.jpg",
-      "imgs/pics/18.jpg",
-      "imgs/pics/20.jpg"
+      "imgs/pics/10.jpg",
+      "imgs/pics/16.jpg"
     ];
 
     // Clear existing static slides
@@ -248,13 +316,17 @@
 
     const data = [
       {
-        place: "Night walk",
-        title: "ORIGINAL",
-        title2: "ROCKPOOL",
+        place: "Snorkel",
+        title: "SNORKEL",
+        title2: "SAFARI",
         description:
-          "Experience the coast after dark! Join the original night rock pool tours in Cape Town. We'll show you the nocturnal life of the tidepools under the stars. Safe, guided, and full of glowing wonders.",
-        image: "imgs/pics/16.jpg",
-        link: "night.html",
+          "Float through the magical kelp forests. We'll guide you through the underwater world, spotting reefs and wildlife in the clear Atlantic. Don't worry about the cold—our wetsuits and excitement will keep you warm!",
+        image: "imgs/snorkle.png",
+        link: "snorkel.html",
+        price: "R850",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
       {
         place: "Day walk",
@@ -264,15 +336,23 @@
           "Take a slow walk on the wild side. We'll explore the shoreline together, spotting colorful critters and learning the secrets of the Cape Peninsula. It's fun, easy-going, and perfect for all ages.",
         image: "imgs/photo2.jpg",
         link: "day.html",
+        price: "R450",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
       {
-        place: "Snorkel",
-        title: "SNORKEL",
-        title2: "SAFARI",
+        place: "Night walk",
+        title: "ORIGINAL",
+        title2: "ROCKPOOL",
         description:
-          "Float through the magical kelp forests. We'll guide you through the underwater world, spotting reefs and wildlife in the clear Atlantic. Don't worry about the cold—our wetsuits and excitement will keep you warm!",
-        image: "imgs/snorkle.png",
-        link: "snorkel.html",
+          "Experience the coast after dark! Join the original night rock pool tours in Cape Town. We'll show you the nocturnal life of the tidepools under the stars. Safe, guided, and full of glowing wonders.",
+        image: "imgs/pics/16.jpg",
+        link: "night.html",
+        price: "R650",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
       {
         place: "Kayak",
@@ -282,10 +362,23 @@
           "Paddle out and see Cape Town from the blue. Team up with Cape Kayak Adventures to explore the open ocean, visit marine wildlife, and get a fresh perspective on the mountain.",
         image: "imgs/pics/10.jpg",
         link: "#contact",
+        price: "R550",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
     ];
 
     const _ = (id) => document.getElementById(id);
+    const setQuickInfo = (detailsSelector, info) => {
+      if (!info) return;
+      const durationEl = document.querySelector(`${detailsSelector} [data-info="duration"]`);
+      if (durationEl) durationEl.textContent = info.duration;
+      const intensityEl = document.querySelector(`${detailsSelector} [data-info="intensity"]`);
+      if (intensityEl) intensityEl.textContent = info.intensity;
+      const groupEl = document.querySelector(`${detailsSelector} [data-info="group"]`);
+      if (groupEl) groupEl.textContent = info.groupSize;
+    };
     const cards = data
       .map(
         (i, index) =>
@@ -360,11 +453,22 @@
       const detailsInactive = detailsEven ? "#details-odd" : "#details-even";
 
       // Re-calc on init
-      offsetTop = (window.innerHeight * 0.96) * 0.5 - (cardHeight * 0.5);
-      offsetLeft = window.innerWidth - 510; // Was 830
-      if (window.innerWidth < 1200) offsetLeft = window.innerWidth - 330; // Was 650
-      if (window.innerWidth < 900) offsetLeft = window.innerWidth - 130;  // Was 450
-      if (offsetTop < 100) offsetTop = 100;
+      const calculateOffsets = () => {
+        offsetTop = (window.innerHeight * 0.96) * 0.5 - (cardHeight * 0.5);
+        // Use percentage based logic or safer breakpoints
+        if (window.innerWidth > 1400) offsetLeft = window.innerWidth * 0.55;
+        else if (window.innerWidth > 1000) offsetLeft = window.innerWidth * 0.55;
+        else offsetLeft = window.innerWidth - 80;
+
+        // Override for report recommendation
+        if (window.innerWidth >= 1200) offsetLeft = window.innerWidth - 600;
+        if (window.innerWidth < 1200) offsetLeft = window.innerWidth - 330;
+        if (window.innerWidth < 900) offsetLeft = window.innerWidth - 130;
+
+        if (offsetTop < 100) offsetTop = 100;
+      };
+
+      calculateOffsets();
 
       gsap.set("#pagination", {
         top: offsetTop + 330,
@@ -372,6 +476,15 @@
         y: 200,
         opacity: 0,
         zIndex: 60,
+      });
+
+      // Window resize listener
+      window.addEventListener('resize', () => {
+        calculateOffsets();
+        // Update positions of non-active cards (active is 0,0)
+        // Ideally we would re-run the layout logic, but for now let's just update the future positions
+        // and the pagination
+        gsap.to("#pagination", { top: offsetTop + 330, left: offsetLeft, duration: 0.5 });
       });
 
       gsap.set(getCard(active), {
@@ -392,11 +505,15 @@
       document.querySelector(`${detailsActive} .title-2`).textContent = activeData.title2;
       document.querySelector(`${detailsActive} .desc`).textContent = activeData.description;
       document.querySelector(`${detailsActive} .cta .exp-btn-ghost`).href = activeData.link;
+      setQuickInfo(detailsActive, activeData);
+      const priceEl = document.querySelector(`${detailsActive} .exp-price .amount`);
+      if (priceEl) priceEl.textContent = activeData.price;
 
       gsap.set(`${detailsInactive} .text`, { y: 100 });
       gsap.set(`${detailsInactive} .title-1`, { y: 100 });
       gsap.set(`${detailsInactive} .title-2`, { y: 100 });
       gsap.set(`${detailsInactive} .desc`, { y: 50 });
+      gsap.set(`${detailsInactive} .exp-quick-info`, { y: 55 });
       gsap.set(`${detailsInactive} .cta`, { y: 60 });
 
       gsap.set(".progress-sub-foreground", {
@@ -429,6 +546,9 @@
       document.querySelector(`${activeDetailsSelector} .title-1`).textContent = initialData.title;
       document.querySelector(`${activeDetailsSelector} .title-2`).textContent = initialData.title2;
       document.querySelector(`${activeDetailsSelector} .desc`).textContent = initialData.description;
+      setQuickInfo(activeDetailsSelector, initialData);
+      const priceElInit = document.querySelector(`${activeDetailsSelector} .exp-price .amount`);
+      if (priceElInit) priceElInit.textContent = initialData.price;
       const discoverBtn = document.querySelector(`${activeDetailsSelector} .cta .exp-btn-ghost`);
       if (discoverBtn) discoverBtn.href = initialData.link;
 
@@ -489,6 +609,9 @@
         document.querySelector(`${detailsActive} .title-1`).textContent = activeData.title;
         document.querySelector(`${detailsActive} .title-2`).textContent = activeData.title2;
         document.querySelector(`${detailsActive} .desc`).textContent = activeData.description;
+        setQuickInfo(detailsActive, activeData);
+        const priceElStep = document.querySelector(`${detailsActive} .exp-price .amount`);
+        if (priceElStep) priceElStep.textContent = activeData.price;
 
         // Update Link
         const discoverBtn = document.querySelector(`${detailsActive} .cta .exp-btn-ghost`);
@@ -517,6 +640,12 @@
         gsap.to(`${detailsActive} .desc`, {
           y: 0,
           delay: 0.3,
+          duration: 0.4,
+          ease,
+        });
+        gsap.to(`${detailsActive} .exp-quick-info`, {
+          y: 0,
+          delay: 0.32,
           duration: 0.4,
           ease,
         });
@@ -581,6 +710,7 @@
             gsap.set(`${detailsInactive} .title-1`, { y: 100 });
             gsap.set(`${detailsInactive} .title-2`, { y: 100 });
             gsap.set(`${detailsInactive} .desc`, { y: 50 });
+            gsap.set(`${detailsInactive} .exp-quick-info`, { y: 55 });
             gsap.set(`${detailsInactive} .cta`, { y: 60 });
             // clicks -= 1; // handling debounce if needed
           },
@@ -614,14 +744,132 @@
     }
 
     // Attach Click Events
+    // Attach Click Events
     const btnRight = document.querySelector('.exp-arrow-right');
     const btnLeft = document.querySelector('.exp-arrow-left');
 
+    const stepReverse = () => {
+      return new Promise((resolve) => {
+        // Rotate order for reverse: move last explicitly to first
+        // Actually, logic for step() moves first to last. Reverse should move last to first.
+        const last = order.pop();
+        if (last !== undefined) {
+          order.unshift(last);
+        }
+
+        detailsEven = !detailsEven;
+        const detailsActive = detailsEven ? "#details-even" : "#details-odd";
+        const detailsInactive = detailsEven ? "#details-odd" : "#details-even";
+
+        document.querySelector("#details-even").style.zIndex = detailsEven ? 22 : 12;
+        document.querySelector("#details-odd").style.zIndex = detailsEven ? 12 : 22;
+
+        gsap.set(detailsActive, { zIndex: 22 });
+        gsap.set(detailsInactive, { zIndex: 12 });
+
+        // Update Text Content (Crucially missing before)
+        const activeData = data[order[0]];
+        document.querySelector(`${detailsActive} .place-box .text`).textContent = activeData.place;
+        document.querySelector(`${detailsActive} .title-1`).textContent = activeData.title;
+        document.querySelector(`${detailsActive} .title-2`).textContent = activeData.title2;
+        document.querySelector(`${detailsActive} .desc`).textContent = activeData.description;
+        setQuickInfo(detailsActive, activeData);
+        const priceElStep = document.querySelector(`${detailsActive} .exp-price .amount`);
+        if (priceElStep) priceElStep.textContent = activeData.price;
+
+        // Update Link
+        const discoverBtn = document.querySelector(`${detailsActive} .cta .exp-btn-ghost`);
+        if (discoverBtn) discoverBtn.href = activeData.link;
+
+        const [active, ...rest] = order;
+
+        // Animate Out Current
+        gsap.set(detailsInactive, { opacity: 0 });
+        gsap.set(`${detailsInactive} .text`, { y: 100 });
+        gsap.set(`${detailsInactive} .title-1`, { y: 100 });
+        gsap.set(`${detailsInactive} .title-2`, { y: 100 });
+        gsap.set(`${detailsInactive} .desc`, { y: 50 });
+        gsap.set(`${detailsInactive} .exp-quick-info`, { y: 55 });
+        gsap.set(`${detailsInactive} .cta`, { y: 60 });
+
+        // TEXT ANIMATION (In New)
+        gsap.to(detailsActive, { opacity: 1, duration: 0.4, ease });
+        gsap.to(`${detailsActive} .text`, { y: 0, delay: 0.1, duration: 0.7, ease });
+        gsap.to(`${detailsActive} .title-1`, { y: 0, delay: 0.15, duration: 0.7, ease });
+        gsap.to(`${detailsActive} .title-2`, { y: 0, delay: 0.15, duration: 0.7, ease });
+        gsap.to(`${detailsActive} .desc`, { y: 0, delay: 0.3, duration: 0.4, ease });
+        gsap.to(`${detailsActive} .exp-quick-info`, { y: 0, delay: 0.32, duration: 0.4, ease });
+        gsap.to(`${detailsActive} .cta`, { y: 0, delay: 0.35, duration: 0.4, ease });
+
+        // CARD ANIMATION
+        // The 'active' is now the first element of our rotated order.
+        gsap.to(getCard(active), {
+          x: 0,
+          y: 0,
+          width: window.innerWidth,
+          height: window.innerHeight,
+          borderRadius: 0,
+          opacity: 1,
+          zIndex: 100, // Background
+          ease,
+          duration: 0.5
+        });
+
+        gsap.to(getCardContent(active), {
+          x: 0,
+          y: 0,
+          opacity: 0, // Text hidden on background
+          duration: 0.3,
+          ease
+        });
+
+        // SLIDES
+        gsap.to(".progress-sub-foreground", {
+          width: 300 * (1 / order.length) * (active + 1),
+          ease,
+        });
+
+        gsap.to(getSliderItem(active), { x: 0, ease }); // Number
+
+        // Rest of cards
+        rest.forEach((i, index) => {
+          gsap.set(getCard(i), { zIndex: 30 }); // Foreground
+          gsap.to(getCard(i), {
+            x: offsetLeft + (index * (cardWidth + cardGap)),
+            y: offsetTop,
+            width: cardWidth,
+            height: cardHeight,
+            opacity: 1,
+            borderRadius: 10,
+            ease,
+            delay: 0.1 * (index + 1)
+          });
+          gsap.to(getCardContent(i), {
+            x: offsetLeft + (index * (cardWidth + cardGap)),
+            y: offsetTop + cardHeight - 100,
+            opacity: 1,
+            zIndex: 40,
+            ease,
+            delay: 0.1 * (index + 1)
+          });
+          gsap.to(getSliderItem(i), { x: (index + 1) * numberSize, ease });
+        });
+        setTimeout(resolve, 500);
+      });
+    };
+
     if (btnRight) {
-      btnRight.addEventListener('click', () => step());
+      btnRight.addEventListener('click', () => {
+        // Disable button temporarily to prevent rapid clicks?
+        step();
+      });
     }
-    // Note: Reverse step is not implemented in reference code provided, using loop logic only via forward clicks essentially for now unless full reverse logic is written.
-    // The user's request emphasized "behave like this" and the provided reference is mainly forward progression in the loop. I'll stick to step() for basic interaction.
+
+    if (btnLeft) {
+      btnLeft.addEventListener('click', () => {
+        stepReverse();
+      });
+    }
 
     initSlider();
   };
@@ -662,4 +910,698 @@
   setupCarousel();
   setupLightbox();
   setupScrollAnimations();
+})();
+
+// Contact Form Handling (Mock)
+const contactForm = document.querySelector('.contact-form');
+if (contactForm && contactForm.dataset.mock === "true") {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = contactForm.querySelector('button');
+    const originalText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    // Simulate network request
+    setTimeout(() => {
+      btn.textContent = 'Message Sent!';
+      btn.style.backgroundColor = '#4ade80'; // Green
+      contactForm.reset();
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        btn.style.backgroundColor = '';
+      }, 3000);
+    }, 1500);
+  });
+}
+
+// --- Tide & Light Widget Logic (Stormglass API - Proxy/Front-end) ---
+// Note: In production, API calls should be routed through a backend to hide the key.
+// Implementing client-side purely for demonstration purposes as per request.
+
+// --- Weather & Tide Widget Logic ---
+// Implements 7-Day Forecast with Stormglass API and LocalStorage Caching
+
+const setupTideWidget = async () => {
+  const widget = document.querySelector('.tide-widget');
+  if (!widget) return;
+
+  const key = "8182e246-eae1-11f0-b4de-0242ac130003-8182e2e6-eae1-11f0-b4de-0242ac130003";
+  const lat = -33.9065;
+  const lng = 18.3973;
+  const timeZone = "Africa/Johannesburg";
+
+  // DOM Elements
+  const dateEl = widget.querySelector('.tide-date');
+  const lowTideEl = document.getElementById('low-tide-time');
+  const highTideEl = document.getElementById('high-tide-time');
+  const moonEl = document.getElementById('moon-phase');
+  const headerEl = widget.querySelector('h3');
+  const forecastGrid = document.getElementById('forecast-grid');
+  const updatedEl = document.getElementById('tide-updated');
+
+  // New Data Elements
+  const swellEl = document.getElementById('swell-data');
+  const windEl = document.getElementById('wind-data');
+  const tempEl = document.getElementById('water-temp');
+  const cloudEl = document.getElementById('cloud-cover');
+
+  // Helper: Format Time
+  const formatTime = (isoString) => {
+    if (!isoString) return '--:--';
+    const date = new Date(isoString);
+    return date.toLocaleTimeString('en-ZA', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone
+    });
+  };
+
+  // Helper: Get Local YYYY-MM-DD
+  const getLocalDateStr = (d) => {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).formatToParts(d);
+    const year = parts.find((part) => part.type === 'year')?.value;
+    const month = parts.find((part) => part.type === 'month')?.value;
+    const day = parts.find((part) => part.type === 'day')?.value;
+    return `${year}-${month}-${day}`;
+  };
+
+  const getDateForZone = (dateStr) => new Date(`${dateStr}T12:00:00+02:00`);
+
+  // Helper: Get Moon Phase (based on known new moon epoch)
+  const getMoonPhase = (date) => {
+    const synodicMonth = 29.530588853; // Days
+    const knownNewMoon = Date.UTC(2000, 0, 6, 18, 14, 0);
+    const utcDate = new Date(Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      12,
+      0,
+      0
+    ));
+
+    const daysSince = (utcDate.getTime() - knownNewMoon) / (1000 * 60 * 60 * 24);
+    const age = ((daysSince % synodicMonth) + synodicMonth) % synodicMonth;
+    const phase = age / synodicMonth;
+    const illumination = Math.round((1 - Math.cos(2 * Math.PI * phase)) * 50);
+
+    let phaseName = "New Moon";
+    if (age < 1.84566) phaseName = "New Moon";
+    else if (age < 5.53699) phaseName = "Waxing Crescent";
+    else if (age < 9.22831) phaseName = "First Quarter";
+    else if (age < 12.91963) phaseName = "Waxing Gibbous";
+    else if (age < 16.61096) phaseName = "Full Moon";
+    else if (age < 20.30228) phaseName = "Waning Gibbous";
+    else if (age < 23.99361) phaseName = "Last Quarter";
+    else if (age < 27.68493) phaseName = "Waning Crescent";
+
+    return { phase: phaseName, illumination: `${illumination}%` };
+  };
+
+  const parseMoonResponse = (data) => {
+    const entry = Array.isArray(data) ? data[0] : data;
+    if (!entry || typeof entry !== 'object') return null;
+
+    const phase = entry.Phase || entry.phase || entry.moonPhase || entry.MoonPhase || null;
+    const rawIllum = entry.Illumination ?? entry.illumination ?? entry.illuminated ?? null;
+
+    let illumination = null;
+    if (rawIllum !== null && rawIllum !== undefined) {
+      const num = parseFloat(rawIllum);
+      if (!Number.isNaN(num)) {
+        const percent = num <= 1 ? num * 100 : num;
+        illumination = `${Math.round(percent)}%`;
+      }
+    }
+
+    return { phase, illumination };
+  };
+
+  const fetchMoonPhaseForDate = async (date) => {
+    const timestamp = Math.floor(date.getTime() / 1000);
+    const res = await fetch(`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`);
+    if (!res.ok) {
+      throw new Error("Moon API Error");
+    }
+    const data = await res.json();
+    return parseMoonResponse(data);
+  };
+
+  const updateMoonPhases = async (dailyData) => {
+    if (!dailyData || dailyData.length === 0) return;
+    const requests = dailyData.map(async (day) => {
+      const dateObj = getDateForZone(day.date);
+      try {
+        return await fetchMoonPhaseForDate(dateObj);
+      } catch (err) {
+        return null;
+      }
+    });
+
+    const results = await Promise.all(requests);
+    results.forEach((moonData, index) => {
+      if (!moonData) return;
+      if (moonData.phase) dailyData[index].moonPhase = moonData.phase;
+      if (moonData.illumination) dailyData[index].moonIllumination = moonData.illumination;
+    });
+  };
+
+  const resolveMoonData = (day, dateObj) => {
+    if (day?.moonPhase || day?.moonIllumination) {
+      return {
+        phase: day.moonPhase || getMoonPhase(dateObj).phase,
+        illumination: day.moonIllumination || getMoonPhase(dateObj).illumination
+      };
+    }
+
+    return getMoonPhase(dateObj);
+  };
+
+  // Helper: Generate Biologist Note from REAL Data
+  const getBioNote = (cond) => {
+    let note = "Conditions are stable. Great for exploring the intertidal zone.";
+    if (!cond) return note;
+
+    const swellH = parseFloat(cond.swellHeight || 0);
+    const windS = parseFloat(cond.windSpeed || 0);
+    const cloudC = parseFloat(cond.cloudCover || 0);
+    const waterT = parseFloat(cond.waterTemp || 14);
+
+    if (swellH > 1.8) {
+      note = `High swell (~${swellH}m) with ${windS}kts wind. Rock pools will be turbulent; stick to sheltered coves or kayaking.`;
+    } else if (swellH < 1.2 && windS < 20) {
+      note = `Prime conditions: low swell (${swellH}m) and ${windS}kts wind. Expect excellent visibility for spotting octopus and shysharks.`;
+    } else if (windS > 25) {
+      note = `The 'Cape Doctor' is blowing (${windS}kts). Surface water will be choppy; great upwelling, harder for snorkeling.`;
+    } else if (cloudC < 20) {
+      note = `Clear skies (${cloudC}% cloud). Great for night walks and bioluminescence spotting.`;
+    } else if (cloudC > 80) {
+      note = `Overcast skies (${cloudC}% cloud) reduce glare, making it easier to spot invertebrates in shallow pools.`;
+    } else if (waterT <= 11) {
+      note = `Water is fresh (${waterT}°C). Cold upwelling suggests high nutrients—look for active filter feeders.`;
+    } else {
+      note = `Swell ${swellH}m, wind ${windS}kts, cloud ${cloudC}%. Balanced conditions for most adventures.`;
+    }
+    return note;
+  };
+
+  const getVisibilityLabel = (swellHeight, windSpeed, cloudCover) => {
+    let score = 0;
+    if (swellHeight > 2.4) score += 2;
+    else if (swellHeight > 1.8) score += 1;
+    else if (swellHeight > 1.2) score += 0.5;
+
+    if (windSpeed > 28) score += 1.5;
+    else if (windSpeed > 18) score += 1;
+
+    if (cloudCover > 80) score += 1;
+    else if (cloudCover > 50) score += 0.5;
+
+    if (score <= 0.5) return "Excellent";
+    if (score <= 1.5) return "Good";
+    if (score <= 2.5) return "Fair";
+    return "Poor";
+  };
+
+  const updateMarineTicker = (cond) => {
+    if (!cond) return;
+
+    const swellHeight = Number.parseFloat(cond.swellHeight || 0);
+    const windSpeed = Number.parseFloat(cond.windSpeed || 0);
+    const cloudCover = Number.parseFloat(cond.cloudCover || 0);
+    const visibility = getVisibilityLabel(swellHeight, windSpeed, cloudCover);
+
+    const setValue = (key, value) => {
+      document.querySelectorAll(`[data-marine="${key}"]`).forEach((el) => {
+        el.textContent = value;
+      });
+    };
+
+    const swellText = `Swell ${cond.swellHeight || "-"}m ${cond.swellDir || ""}`.trim();
+    const windText = `Wind ${cond.windSpeed || "-"}kts ${cond.windDir || ""}`.trim();
+    const tempText = `Water Temp ${cond.waterTemp || "-"}°C`;
+    const visibilityText = `Visibility ${visibility}`;
+
+    setValue("swell", swellText);
+    setValue("wind", windText);
+    setValue("temp", tempText);
+    setValue("visibility", visibilityText);
+  };
+
+  // Function to Render Data to UI
+  const renderUI = (dailyData, updatedAt) => {
+    if (!dailyData || dailyData.length === 0) return;
+
+    // Set Header Data (Today)
+    const today = dailyData[0];
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone };
+    dateEl.textContent = now.toLocaleDateString('en-ZA', options);
+    headerEl.textContent = "Ocean Report: Three Anchor Bay";
+    if (updatedEl) {
+      const updated = updatedAt || new Date();
+      updatedEl.textContent = `Updated ${updated.toLocaleString('en-ZA', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit'
+      })}`;
+    }
+
+    // Initial Main Widget Update (Today)
+    lowTideEl.textContent = today.low ? formatTime(today.low.time) : '--:--';
+    highTideEl.textContent = today.high ? formatTime(today.high.time) : '--:--';
+
+    // Real Extra Data
+    if (swellEl) swellEl.textContent = `${today.swellHeight || '-'}m ${today.swellDir || ''}`;
+    if (windEl) windEl.textContent = `${today.windSpeed || '-'}kts ${today.windDir || ''}`;
+    if (tempEl) tempEl.textContent = `${today.waterTemp || '-'}°C`;
+    if (cloudEl) cloudEl.textContent = `${today.cloudCover || '-'}%`;
+    updateMarineTicker(today);
+
+    const todayDate = getDateForZone(today.date);
+    const todayMoon = resolveMoonData(today, todayDate);
+    moonEl.textContent = todayMoon.phase;
+    if (moonEl.nextElementSibling) moonEl.nextElementSibling.textContent = todayMoon.illumination + ' Illumination';
+    document.getElementById('bio-note').textContent = today.note;
+
+    // Render Forecast Grid
+    if (forecastGrid) {
+      forecastGrid.innerHTML = '';
+
+      dailyData.forEach((day, index) => {
+        const displayDate = getDateForZone(day.date);
+
+        const dayName = displayDate.toLocaleDateString('en-US', { weekday: 'short', timeZone });
+        const fullDate = displayDate.toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone });
+
+        const moonData = resolveMoonData(day, displayDate);
+
+        // Weather Icon determination
+        let icon = "☀️";
+        if (day.cloudCover > 50) icon = "☁️";
+        if (day.windSpeed > 30) icon = "🌬️";
+        if (day.swellHeight > 2.5) icon = "🌊";
+
+        const card = document.createElement('div');
+        card.className = `forecast-card ${index === 0 ? 'active' : ''}`;
+
+        // Data attributes
+        card.dataset.date = fullDate;
+        card.dataset.low = day.low ? formatTime(day.low.time) : '--:--';
+        card.dataset.high = day.high ? formatTime(day.high.time) : '--:--';
+        card.dataset.moon = moonData.phase;
+        card.dataset.illum = moonData.illumination;
+
+        card.dataset.swell = `${day.swellHeight || '-'}m ${day.swellDir || ''}`;
+        card.dataset.wind = `${day.windSpeed || '-'}kts ${day.windDir || ''}`;
+        card.dataset.temp = `${day.waterTemp || '-'}°C`;
+        card.dataset.cloud = `${day.cloudCover || '-'}%`;
+        card.dataset.swellHeight = day.swellHeight || '';
+        card.dataset.swellDir = day.swellDir || '';
+        card.dataset.windSpeed = day.windSpeed || '';
+        card.dataset.windDir = day.windDir || '';
+        card.dataset.waterTemp = day.waterTemp || '';
+        card.dataset.cloudCover = day.cloudCover || '';
+        card.dataset.note = day.note;
+
+        card.innerHTML = `
+          <div class="forecast-day">${dayName}</div>
+          <div class="forecast-icon">${icon}</div>
+          <div class="forecast-temp">${day.airTemp || '--'}°C</div>
+          <div class="forecast-desc">${day.weatherDesc || 'Clear'}</div>
+        `;
+
+        card.onclick = () => {
+          document.querySelectorAll('.forecast-card').forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+
+          document.querySelector('.tide-date').textContent = card.dataset.date;
+          document.getElementById('low-tide-time').textContent = card.dataset.low;
+          document.getElementById('high-tide-time').textContent = card.dataset.high;
+          document.getElementById('moon-phase').textContent = card.dataset.moon;
+
+          if (swellEl) swellEl.textContent = card.dataset.swell;
+          if (windEl) windEl.textContent = card.dataset.wind;
+          if (tempEl) tempEl.textContent = card.dataset.temp;
+          if (cloudEl) cloudEl.textContent = card.dataset.cloud;
+
+          const mv = document.getElementById('moon-phase');
+          if (mv.nextElementSibling) mv.nextElementSibling.textContent = card.dataset.illum + ' Illumination';
+          document.getElementById('bio-note').textContent = card.dataset.note;
+
+          updateMarineTicker({
+            swellHeight: card.dataset.swellHeight,
+            swellDir: card.dataset.swellDir,
+            windSpeed: card.dataset.windSpeed,
+            windDir: card.dataset.windDir,
+            waterTemp: card.dataset.waterTemp,
+            cloudCover: card.dataset.cloudCover,
+          });
+        };
+
+        forecastGrid.appendChild(card);
+      });
+    }
+  };
+
+  // Fetch Logic
+  try {
+    const CACHE_KEY = 'kirshia_ocean_cache_v6'; // New unified Cache
+    const CACHE_SKEW = 1000 * 60 * 60 * 5; // 5 Hours
+
+    // Check Cache
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { timestamp, data } = JSON.parse(cached);
+      if ((Date.now() - timestamp) < CACHE_SKEW) {
+        const todayStr = getLocalDateStr(new Date());
+        if (data[0] && data[0].date === todayStr) {
+          console.log("Using cached unified data");
+          if (!data[0].moonPhase) {
+            await updateMoonPhases(data);
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+              timestamp,
+              data
+            }));
+          }
+          renderUI(data, new Date(timestamp));
+          return;
+        }
+      }
+    }
+
+    console.log("Fetching fresh ocean data...");
+    const now = new Date();
+    const startStr = getLocalDateStr(now);
+    const future = new Date(now);
+    future.setDate(future.getDate() + 7);
+    const endStr = getLocalDateStr(future);
+
+    // 1. Fetch Stormglass Tides
+    // (Still need Stormglass for accurate Tide Extremes)
+    const tidePromise = fetch(`https://api.stormglass.io/v2/tide/extremes/point?lat=${lat}&lng=${lng}&start=${startStr}&end=${endStr}`, {
+      headers: { 'Authorization': key }
+    });
+
+    // 2. Fetch Open-Meteo Weather (Wind, Cloud, Temp)
+    // Using 'forecast' endpoint
+    const omWeatherPromise = fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&daily=temperature_2m_max,wind_speed_10m_max,wind_direction_10m_dominant,cloud_cover_mean,weather_code&timezone=auto`);
+
+    // 3. Fetch Open-Meteo Marine (Swell, Wave Dir)
+    const omMarinePromise = fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${lat}&longitude=${lng}&daily=wave_height_max,wave_direction_dominant&timezone=auto`);
+
+    const [tideRes, weatherRes, marineRes] = await Promise.all([tidePromise, omWeatherPromise, omMarinePromise]);
+
+    if (!tideRes.ok) throw new Error("Tide API Error");
+    if (!weatherRes.ok) throw new Error("Weather API Error");
+    if (!marineRes.ok) throw new Error("Marine API Error");
+
+    const tideData = await tideRes.json();
+    const weatherData = await weatherRes.json();
+    const marineData = await marineRes.json();
+
+    // Process & Merge Data
+    const grouped = {};
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(now);
+      d.setDate(d.getDate() + i);
+      const dateStr = getLocalDateStr(d);
+      grouped[dateStr] = {
+        date: dateStr,
+        low: null,
+        high: null,
+        swellHeight: 0, swellDir: '',
+        windSpeed: 0, windDir: '',
+        waterTemp: 14,
+        airTemp: 0,
+        cloudCover: 0,
+        weatherDesc: 'Fine',
+        note: ''
+      };
+    }
+
+    // Fill Tides
+    tideData.data.forEach(item => {
+      // item.time is ISO (UTC). Convert to Local Date String for matching
+      const itemDateLocal = getLocalDateStr(new Date(item.time));
+      if (grouped[itemDateLocal]) {
+        if (item.type === 'low' && !grouped[itemDateLocal].low) grouped[itemDateLocal].low = item;
+        if (item.type === 'high' && !grouped[itemDateLocal].high) grouped[itemDateLocal].high = item;
+      }
+    });
+
+    const getDirStr = (deg) => {
+      const dirs = ['N', 'NE', 'E', 'SE', 'S', 'SW', 'W', 'NW'];
+      return dirs[Math.round(deg / 45) % 8];
+    };
+
+    const getWeatherText = (code) => {
+      if (code === 0) return "Clear Skies";
+      if (code < 3) return "Partly Cloudy";
+      if (code < 50) return "Foggy";
+      if (code < 80) return "Rainy";
+      return "Stormy";
+    };
+
+    const wDaily = weatherData.daily;
+    const mDaily = marineData.daily;
+
+    wDaily.time.forEach((dateKey, idx) => {
+      if (grouped[dateKey]) {
+        // Open-Meteo returns km/h. Convert to Knots (1 km/h = 0.539957 knots).
+        const windKph = wDaily.wind_speed_10m_max[idx];
+        const windKnots = Math.round(windKph / 1.852);
+
+        grouped[dateKey].windSpeed = windKnots;
+        grouped[dateKey].windDir = getDirStr(wDaily.wind_direction_10m_dominant[idx]);
+        grouped[dateKey].cloudCover = Math.round(wDaily.cloud_cover_mean[idx]);
+        grouped[dateKey].airTemp = Math.round(wDaily.temperature_2m_max[idx]);
+        grouped[dateKey].weatherDesc = getWeatherText(wDaily.weather_code[idx]);
+      }
+    });
+
+    mDaily.time.forEach((dateKey, idx) => {
+      if (grouped[dateKey]) {
+        const waveH = mDaily.wave_height_max[idx];
+        grouped[dateKey].swellHeight = waveH ? waveH.toFixed(1) : '1.0';
+        grouped[dateKey].swellDir = getDirStr(mDaily.wave_direction_dominant[idx]);
+        const isSE = grouped[dateKey].windDir.includes('S') || grouped[dateKey].windDir.includes('E');
+        grouped[dateKey].waterTemp = isSE ? 11 : 14;
+      }
+    });
+
+    const dailyData = Object.values(grouped);
+    dailyData.forEach(day => {
+      day.note = getBioNote(day);
+    });
+
+    await updateMoonPhases(dailyData);
+
+    localStorage.setItem(CACHE_KEY, JSON.stringify({
+      timestamp: Date.now(),
+      data: dailyData
+    }));
+
+    renderUI(dailyData, new Date());
+
+  } catch (err) {
+    console.error("Ocean data fetch failed", err);
+    lowTideEl.textContent = "Unavailable";
+    if (forecastGrid) forecastGrid.innerHTML = '<div style="grid-column:1/-1;text-align:center">Data unavailable. Please try again later.</div>';
+  }
+};
+
+// Initialize
+setupTideWidget();
+
+// --- Mobile Nav Animation Logic ---
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    navToggle.classList.toggle("is-active");
+  });
+  // Also reset if clicking link
+  nav?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navToggle.classList.remove("is-active");
+    });
+  });
+}
+
+// --- Urgency Badge Logic ---
+const urgencyDateEl = document.getElementById("next-tour-date");
+if (urgencyDateEl) {
+  // Find next Friday or Saturday
+  const today = new Date();
+  const nextDate = new Date(today);
+  // Simple logic: If Mon-Thu, show this Friday. If Fri-Sun, show next Friday.
+  // (Simplified: just show date 3 days from now for demo 'urgency')
+  nextDate.setDate(today.getDate() + 3);
+
+  const options = { month: 'short', day: 'numeric' };
+  urgencyDateEl.textContent = nextDate.toLocaleDateString('en-ZA', options);
+}
+
+// --- Multi-Step Booking Logic ---
+window.selectVibe = (vibe) => {
+  const step1 = document.getElementById('booking-step-1');
+  const form = document.getElementById('booking-form');
+  const input = document.getElementById('selected-tour');
+  const display = document.getElementById('selected-vibe-display');
+
+  if (step1 && form && input) {
+    input.value = vibe;
+    display.textContent = vibe;
+
+    // Animate transition
+    gsap.to(step1, {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      onComplete: () => {
+        step1.style.display = 'none';
+        form.style.display = 'grid'; // Form is grid layout
+        gsap.fromTo(form, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.4 });
+      }
+    });
+  }
+};
+
+window.resetVibe = () => {
+  const step1 = document.getElementById('booking-step-1');
+  const form = document.getElementById('booking-form');
+
+  gsap.to(form, {
+    opacity: 0,
+    y: 20,
+    duration: 0.3,
+    onComplete: () => {
+      form.style.display = 'none';
+      step1.style.display = 'block';
+      gsap.fromTo(step1, { opacity: 0, y: -20 }, { opacity: 1, y: 0, duration: 0.4 });
+    }
+  });
+};
+
+/* --- Mobile Experiences Slider Logic --- */
+(() => {
+  const container = document.getElementById('exp-slider-container-mobile');
+  if (!container) return; // Only run if mobile container exists
+
+  const dotsContainer = document.getElementById('dotsContainer');
+  const cards = container.querySelectorAll('.exp-card-wrapper');
+  const nextBtn = document.getElementById('nextBtnMobile');
+  const prevBtn = document.getElementById('prevBtnMobile');
+
+  if (cards.length === 0) return;
+
+  // 1. Create Dots based on card count
+  let dots = [];
+  if (dotsContainer) {
+    dotsContainer.innerHTML = ''; // Clear existing
+  }
+
+  cards.forEach((card, index) => {
+    // Add click listener to card itself
+    card.addEventListener('click', () => {
+      scrollToSlide(index);
+    });
+
+    if (!dotsContainer) {
+      return;
+    }
+
+    const dot = document.createElement('button');
+    dot.classList.add('dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      scrollToSlide(index);
+    });
+    dotsContainer.appendChild(dot);
+  });
+
+  if (dotsContainer) {
+    dots = Array.from(dotsContainer.querySelectorAll('.dot'));
+  }
+  // State to track current index for buttons
+  let currentIndex = 0;
+
+  const getMetrics = () => {
+    const firstCard = cards[0];
+    if (!firstCard) {
+      return { step: 0, paddingLeft: 0 };
+    }
+
+    const containerStyles = window.getComputedStyle(container);
+    const gapValue = parseFloat(containerStyles.columnGap || containerStyles.gap || '0') || 0;
+    const paddingLeft = parseFloat(containerStyles.paddingLeft || '0') || 0;
+    const cardWidth = firstCard.offsetWidth || 0;
+
+    return { step: cardWidth + gapValue, paddingLeft };
+  };
+
+  const clampIndex = (index) => Math.max(0, Math.min(index, cards.length - 1));
+
+  const updateDots = (activeIndex) => {
+    if (dots.length === 0) return;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === activeIndex);
+    });
+  };
+
+  // 2. Function to scroll to specific slide
+  function scrollToSlide(index) {
+    if (!cards[0]) return;
+
+    // Bounds check
+    const safeIndex = clampIndex(index);
+
+    const { step, paddingLeft } = getMetrics();
+    const targetLeft = step * safeIndex + paddingLeft;
+    if (typeof container.scrollTo === 'function') {
+      container.scrollTo({
+        left: targetLeft,
+        behavior: 'smooth'
+      });
+    } else {
+      container.scrollLeft = targetLeft;
+    }
+    // Update index immediately for button usage
+    currentIndex = safeIndex;
+    updateDots(currentIndex);
+  }
+
+  // 3. Update Dots on Scroll
+  container.addEventListener('scroll', () => {
+    const { step, paddingLeft } = getMetrics();
+    if (!step) return;
+
+    const scrollLeft = container.scrollLeft;
+    const activeIndex = clampIndex(Math.round((scrollLeft - paddingLeft) / step));
+
+    // Sync our local state
+    currentIndex = activeIndex;
+    updateDots(activeIndex);
+  });
+
+  // 4. Button Logic
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      scrollToSlide(currentIndex + 1);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      scrollToSlide(currentIndex - 1);
+    });
+  }
 })();
