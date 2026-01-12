@@ -2739,3 +2739,22 @@ body.contact-page .page-hero p,
 body.contact-page .page-hero .eyebrow {
     color: var(--white);
 }
+
+/* Hide all images and videos - without-pics branch */
+img,
+video {
+    display: none !important;
+}
+
+/* Remove background images */
+[style*="background-image"],
+.hero_slide,
+.hero-media,
+.exp-card,
+.exp-card-mobile,
+.gallery-item,
+.team-img,
+.insta-item {
+    background-image: none !important;
+    background-color: var(--mist) !important;
+}
