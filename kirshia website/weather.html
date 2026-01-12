@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather & Tides | Aonyx Marine Experiences</title>
-    <meta name="description"
-        content="Check the latest weather, tides, and ocean conditions for your marine adventure in Cape Town.">
+    <title>Cape Town Ocean Conditions & Tides | Marine Report | Aonyx</title>
+    <meta name="description" content="Live Cape Town ocean report with tides, swell, wind, and visibility to plan your Aonyx marine adventure.">
+    <link rel="canonical" href="https://aonyx.co.za/weather.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cape Town Ocean Conditions & Tides | Marine Report | Aonyx">
+    <meta property="og:description" content="Live Cape Town ocean report with tides, swell, wind, and visibility to plan your Aonyx marine adventure.">
+    <meta property="og:url" content="https://aonyx.co.za/weather.html">
+    <meta property="og:image" content="imgs/photo3.jpg">
+    <meta property="og:site_name" content="Aonyx">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cape Town Ocean Conditions & Tides | Marine Report | Aonyx">
+    <meta name="twitter:description" content="Live Cape Town ocean report with tides, swell, wind, and visibility to plan your Aonyx marine adventure.">
+    <meta name="twitter:image" content="imgs/photo3.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +24,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <style>
         /* Forecast Specific Styles */
         .forecast-grid {
@@ -124,9 +134,9 @@
                 <a href="gallery.html">Gallery</a>
                 <a href="weather.html" class="active">Weather</a>
                 <a href="contact.html">Contact</a>
-                <a href="contact.html" class="mobile-only-cta">Book Now</a>
+                <a href="contact.html" class="mobile-only-cta">Check Availability</a>
             </nav>
-            <a class="nav-cta" href="contact.html">Book now</a>
+            <a class="nav-cta" href="contact.html">Check Availability</a>
             <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -147,12 +157,39 @@
     <!-- Current Conditions / Tide Widget (Moved from Homepage) -->
     <section class="section tide-section" id="conditions">
         <div class="section-inner">
+            <div class="marine-ticker" data-animate aria-label="Marine conditions ticker">
+                <div class="marine-ticker-track">
+                    <div class="marine-ticker-item">
+                        <span class="marine-label">Marine Conditions</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="swell">Swell --</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="visibility">Visibility --</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="temp">Water Temp --</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="wind">Wind --</span>
+                    </div>
+                    <div class="marine-ticker-item" aria-hidden="true">
+                        <span class="marine-label">Marine Conditions</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="swell">Swell --</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="visibility">Visibility --</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="temp">Water Temp --</span>
+                        <span class="marine-dot">•</span>
+                        <span class="marine-value" data-marine="wind">Wind --</span>
+                    </div>
+                </div>
+            </div>
             <div class="tide-widget" data-animate>
                 <div class="tide-header">
                     <div>
                         <p class="eyebrow">Live Conditions</p>
                         <h3>Ocean Report: Cape Town</h3>
                         <p class="tide-date">Loading date...</p>
+                        <p class="tide-updated" id="tide-updated">Updated --</p>
                     </div>
                     <div class="weather-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
@@ -260,12 +297,23 @@
         });
     </script>
 
-    <footer class="footer">
+        <a href="https://wa.me/27762407806" class="floating-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path
+                d="M16.02 5.32c-5.87 0-10.64 4.77-10.64 10.64 0 1.87.5 3.7 1.46 5.32L5 27l5.92-1.55a10.58 10.58 0 0 0 5.1 1.31h.01c5.87 0 10.64-4.77 10.64-10.64 0-2.84-1.1-5.52-3.1-7.52a10.56 10.56 0 0 0-7.55-3.28zm6.16 15.44c-.26.73-1.3 1.35-2 1.45-.49.07-1.1.1-1.77-.11-.41-.13-.94-.31-1.63-.6-2.86-1.24-4.73-4.09-4.87-4.28-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.33-.3.5-.15.18-.32.39-.46.52-.15.14-.3.3-.13.6.18.29.78 1.29 1.68 2.1 1.16 1.05 2.13 1.37 2.42 1.52.3.15.47.13.65-.08.18-.2.74-.86.94-1.15.2-.29.39-.24.66-.14.26.1 1.67.79 1.96.94.29.15.48.22.55.34.07.13.07.73-.19 1.46z">
+            </path>
+        </svg>
+    </a>
+    <a href="contact.html" class="floating-cta" aria-label="Check availability for your adventure">
+        Check Availability
+    </a>
+
+<footer class="footer">
         <div class="footer-inner">
             <div>
                 <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
                     style="height: 90px; margin-bottom: 1rem; display: block;">
-                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <p>Unlocking the ocean's secrets with the experts who know them best.</p>
                 <div style="margin-top: 1rem; opacity: 0.8;">
                     <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
                     <p>kirshia.govender@gmail.com</p>
@@ -317,7 +365,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>

@@ -195,6 +195,62 @@
       });
     });
 
+    const videoParallax = document.querySelector(".video-parallax");
+    if (videoParallax) {
+      const videoMedia = videoParallax.querySelector(".video-media");
+      const videoOverlay = videoParallax.querySelector(".video-overlay");
+
+      gsap.fromTo(
+        videoParallax,
+        { clipPath: "inset(12% 8% 12% 8%)" },
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: videoParallax,
+            start: "top 80%",
+            end: "center 60%",
+            scrub: true,
+          },
+        }
+      );
+
+      if (videoMedia) {
+        gsap.fromTo(
+          videoMedia,
+          { y: 40, scale: 1.05 },
+          {
+            y: -40,
+            scale: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: videoParallax,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          }
+        );
+      }
+
+      if (videoOverlay) {
+        gsap.fromTo(
+          videoOverlay,
+          { opacity: 0.6 },
+          {
+            opacity: 0.2,
+            ease: "none",
+            scrollTrigger: {
+              trigger: videoParallax,
+              start: "top 80%",
+              end: "center 60%",
+              scrub: true,
+            },
+          }
+        );
+      }
+    }
+
     setupExperiencesSlider();
     setupHeroSlider();
   };
@@ -267,7 +323,10 @@
           "Float through the magical kelp forests. We'll guide you through the underwater world, spotting reefs and wildlife in the clear Atlantic. Don't worry about the cold—our wetsuits and excitement will keep you warm!",
         image: "imgs/snorkle.png",
         link: "snorkel.html",
-        price: "R850"
+        price: "R850",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
       {
         place: "Day walk",
@@ -277,7 +336,10 @@
           "Take a slow walk on the wild side. We'll explore the shoreline together, spotting colorful critters and learning the secrets of the Cape Peninsula. It's fun, easy-going, and perfect for all ages.",
         image: "imgs/photo2.jpg",
         link: "day.html",
-        price: "R450"
+        price: "R450",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
       {
         place: "Night walk",
@@ -287,7 +349,10 @@
           "Experience the coast after dark! Join the original night rock pool tours in Cape Town. We'll show you the nocturnal life of the tidepools under the stars. Safe, guided, and full of glowing wonders.",
         image: "imgs/pics/16.jpg",
         link: "night.html",
-        price: "R650"
+        price: "R650",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
       {
         place: "Kayak",
@@ -297,11 +362,23 @@
           "Paddle out and see Cape Town from the blue. Team up with Cape Kayak Adventures to explore the open ocean, visit marine wildlife, and get a fresh perspective on the mountain.",
         image: "imgs/pics/10.jpg",
         link: "#contact",
-        price: "R550"
+        price: "R550",
+        duration: "2 Hours",
+        intensity: "Low/Medium",
+        groupSize: "Max 8"
       },
     ];
 
     const _ = (id) => document.getElementById(id);
+    const setQuickInfo = (detailsSelector, info) => {
+      if (!info) return;
+      const durationEl = document.querySelector(`${detailsSelector} [data-info="duration"]`);
+      if (durationEl) durationEl.textContent = info.duration;
+      const intensityEl = document.querySelector(`${detailsSelector} [data-info="intensity"]`);
+      if (intensityEl) intensityEl.textContent = info.intensity;
+      const groupEl = document.querySelector(`${detailsSelector} [data-info="group"]`);
+      if (groupEl) groupEl.textContent = info.groupSize;
+    };
     const cards = data
       .map(
         (i, index) =>
@@ -428,6 +505,7 @@
       document.querySelector(`${detailsActive} .title-2`).textContent = activeData.title2;
       document.querySelector(`${detailsActive} .desc`).textContent = activeData.description;
       document.querySelector(`${detailsActive} .cta .exp-btn-ghost`).href = activeData.link;
+      setQuickInfo(detailsActive, activeData);
       const priceEl = document.querySelector(`${detailsActive} .exp-price .amount`);
       if (priceEl) priceEl.textContent = activeData.price;
 
@@ -435,6 +513,7 @@
       gsap.set(`${detailsInactive} .title-1`, { y: 100 });
       gsap.set(`${detailsInactive} .title-2`, { y: 100 });
       gsap.set(`${detailsInactive} .desc`, { y: 50 });
+      gsap.set(`${detailsInactive} .exp-quick-info`, { y: 55 });
       gsap.set(`${detailsInactive} .cta`, { y: 60 });
 
       gsap.set(".progress-sub-foreground", {
@@ -467,6 +546,7 @@
       document.querySelector(`${activeDetailsSelector} .title-1`).textContent = initialData.title;
       document.querySelector(`${activeDetailsSelector} .title-2`).textContent = initialData.title2;
       document.querySelector(`${activeDetailsSelector} .desc`).textContent = initialData.description;
+      setQuickInfo(activeDetailsSelector, initialData);
       const priceElInit = document.querySelector(`${activeDetailsSelector} .exp-price .amount`);
       if (priceElInit) priceElInit.textContent = initialData.price;
       const discoverBtn = document.querySelector(`${activeDetailsSelector} .cta .exp-btn-ghost`);
@@ -529,6 +609,7 @@
         document.querySelector(`${detailsActive} .title-1`).textContent = activeData.title;
         document.querySelector(`${detailsActive} .title-2`).textContent = activeData.title2;
         document.querySelector(`${detailsActive} .desc`).textContent = activeData.description;
+        setQuickInfo(detailsActive, activeData);
         const priceElStep = document.querySelector(`${detailsActive} .exp-price .amount`);
         if (priceElStep) priceElStep.textContent = activeData.price;
 
@@ -559,6 +640,12 @@
         gsap.to(`${detailsActive} .desc`, {
           y: 0,
           delay: 0.3,
+          duration: 0.4,
+          ease,
+        });
+        gsap.to(`${detailsActive} .exp-quick-info`, {
+          y: 0,
+          delay: 0.32,
           duration: 0.4,
           ease,
         });
@@ -623,6 +710,7 @@
             gsap.set(`${detailsInactive} .title-1`, { y: 100 });
             gsap.set(`${detailsInactive} .title-2`, { y: 100 });
             gsap.set(`${detailsInactive} .desc`, { y: 50 });
+            gsap.set(`${detailsInactive} .exp-quick-info`, { y: 55 });
             gsap.set(`${detailsInactive} .cta`, { y: 60 });
             // clicks -= 1; // handling debounce if needed
           },
@@ -685,6 +773,7 @@
         document.querySelector(`${detailsActive} .title-1`).textContent = activeData.title;
         document.querySelector(`${detailsActive} .title-2`).textContent = activeData.title2;
         document.querySelector(`${detailsActive} .desc`).textContent = activeData.description;
+        setQuickInfo(detailsActive, activeData);
         const priceElStep = document.querySelector(`${detailsActive} .exp-price .amount`);
         if (priceElStep) priceElStep.textContent = activeData.price;
 
@@ -700,6 +789,7 @@
         gsap.set(`${detailsInactive} .title-1`, { y: 100 });
         gsap.set(`${detailsInactive} .title-2`, { y: 100 });
         gsap.set(`${detailsInactive} .desc`, { y: 50 });
+        gsap.set(`${detailsInactive} .exp-quick-info`, { y: 55 });
         gsap.set(`${detailsInactive} .cta`, { y: 60 });
 
         // TEXT ANIMATION (In New)
@@ -708,6 +798,7 @@
         gsap.to(`${detailsActive} .title-1`, { y: 0, delay: 0.15, duration: 0.7, ease });
         gsap.to(`${detailsActive} .title-2`, { y: 0, delay: 0.15, duration: 0.7, ease });
         gsap.to(`${detailsActive} .desc`, { y: 0, delay: 0.3, duration: 0.4, ease });
+        gsap.to(`${detailsActive} .exp-quick-info`, { y: 0, delay: 0.32, duration: 0.4, ease });
         gsap.to(`${detailsActive} .cta`, { y: 0, delay: 0.35, duration: 0.4, ease });
 
         // CARD ANIMATION
@@ -823,7 +914,7 @@
 
 // Contact Form Handling (Mock)
 const contactForm = document.querySelector('.contact-form');
-if (contactForm) {
+if (contactForm && contactForm.dataset.mock === "true") {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = contactForm.querySelector('button');
@@ -859,6 +950,7 @@ const setupTideWidget = async () => {
   const key = "8182e246-eae1-11f0-b4de-0242ac130003-8182e2e6-eae1-11f0-b4de-0242ac130003";
   const lat = -33.9065;
   const lng = 18.3973;
+  const timeZone = "Africa/Johannesburg";
 
   // DOM Elements
   const dateEl = widget.querySelector('.tide-date');
@@ -867,6 +959,7 @@ const setupTideWidget = async () => {
   const moonEl = document.getElementById('moon-phase');
   const headerEl = widget.querySelector('h3');
   const forecastGrid = document.getElementById('forecast-grid');
+  const updatedEl = document.getElementById('tide-updated');
 
   // New Data Elements
   const swellEl = document.getElementById('swell-data');
@@ -878,36 +971,118 @@ const setupTideWidget = async () => {
   const formatTime = (isoString) => {
     if (!isoString) return '--:--';
     const date = new Date(isoString);
-    return date.toLocaleTimeString('en-ZA', { hour: '2-digit', minute: '2-digit', hour12: false });
+    return date.toLocaleTimeString('en-ZA', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone
+    });
   };
 
   // Helper: Get Local YYYY-MM-DD
   const getLocalDateStr = (d) => {
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).formatToParts(d);
+    const year = parts.find((part) => part.type === 'year')?.value;
+    const month = parts.find((part) => part.type === 'month')?.value;
+    const day = parts.find((part) => part.type === 'day')?.value;
     return `${year}-${month}-${day}`;
   };
 
-  // Helper: Get Moon Phase
+  const getDateForZone = (dateStr) => new Date(`${dateStr}T12:00:00+02:00`);
+
+  // Helper: Get Moon Phase (based on known new moon epoch)
   const getMoonPhase = (date) => {
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    if (month < 3) { year--; month += 12; }
-    ++month;
-    let c = 365.25 * year;
-    let e = 30.6 * month;
-    let jd = c + e + day - 694039.09;
-    jd /= 29.5305882;
-    let b = parseInt(jd);
-    jd -= b;
-    b = Math.round(jd * 8);
-    if (b >= 8) b = 0;
-    const phases = ["New Moon", "Waxing Crescent", "First Quarter", "Waxing Gibbous", "Full Moon", "Waning Gibbous", "Last Quarter", "Waning Crescent"];
-    const distFromFull = Math.abs(jd - 0.5);
-    const illumination = Math.round((0.5 - distFromFull) * 2 * 100);
-    return { phase: phases[b], illumination: `${illumination}%` };
+    const synodicMonth = 29.530588853; // Days
+    const knownNewMoon = Date.UTC(2000, 0, 6, 18, 14, 0);
+    const utcDate = new Date(Date.UTC(
+      date.getFullYear(),
+      date.getMonth(),
+      date.getDate(),
+      12,
+      0,
+      0
+    ));
+
+    const daysSince = (utcDate.getTime() - knownNewMoon) / (1000 * 60 * 60 * 24);
+    const age = ((daysSince % synodicMonth) + synodicMonth) % synodicMonth;
+    const phase = age / synodicMonth;
+    const illumination = Math.round((1 - Math.cos(2 * Math.PI * phase)) * 50);
+
+    let phaseName = "New Moon";
+    if (age < 1.84566) phaseName = "New Moon";
+    else if (age < 5.53699) phaseName = "Waxing Crescent";
+    else if (age < 9.22831) phaseName = "First Quarter";
+    else if (age < 12.91963) phaseName = "Waxing Gibbous";
+    else if (age < 16.61096) phaseName = "Full Moon";
+    else if (age < 20.30228) phaseName = "Waning Gibbous";
+    else if (age < 23.99361) phaseName = "Last Quarter";
+    else if (age < 27.68493) phaseName = "Waning Crescent";
+
+    return { phase: phaseName, illumination: `${illumination}%` };
+  };
+
+  const parseMoonResponse = (data) => {
+    const entry = Array.isArray(data) ? data[0] : data;
+    if (!entry || typeof entry !== 'object') return null;
+
+    const phase = entry.Phase || entry.phase || entry.moonPhase || entry.MoonPhase || null;
+    const rawIllum = entry.Illumination ?? entry.illumination ?? entry.illuminated ?? null;
+
+    let illumination = null;
+    if (rawIllum !== null && rawIllum !== undefined) {
+      const num = parseFloat(rawIllum);
+      if (!Number.isNaN(num)) {
+        const percent = num <= 1 ? num * 100 : num;
+        illumination = `${Math.round(percent)}%`;
+      }
+    }
+
+    return { phase, illumination };
+  };
+
+  const fetchMoonPhaseForDate = async (date) => {
+    const timestamp = Math.floor(date.getTime() / 1000);
+    const res = await fetch(`https://api.farmsense.net/v1/moonphases/?d=${timestamp}`);
+    if (!res.ok) {
+      throw new Error("Moon API Error");
+    }
+    const data = await res.json();
+    return parseMoonResponse(data);
+  };
+
+  const updateMoonPhases = async (dailyData) => {
+    if (!dailyData || dailyData.length === 0) return;
+    const requests = dailyData.map(async (day) => {
+      const dateObj = getDateForZone(day.date);
+      try {
+        return await fetchMoonPhaseForDate(dateObj);
+      } catch (err) {
+        return null;
+      }
+    });
+
+    const results = await Promise.all(requests);
+    results.forEach((moonData, index) => {
+      if (!moonData) return;
+      if (moonData.phase) dailyData[index].moonPhase = moonData.phase;
+      if (moonData.illumination) dailyData[index].moonIllumination = moonData.illumination;
+    });
+  };
+
+  const resolveMoonData = (day, dateObj) => {
+    if (day?.moonPhase || day?.moonIllumination) {
+      return {
+        phase: day.moonPhase || getMoonPhase(dateObj).phase,
+        illumination: day.moonIllumination || getMoonPhase(dateObj).illumination
+      };
+    }
+
+    return getMoonPhase(dateObj);
   };
 
   // Helper: Generate Biologist Note from REAL Data
@@ -921,31 +1096,85 @@ const setupTideWidget = async () => {
     const waterT = parseFloat(cond.waterTemp || 14);
 
     if (swellH > 1.8) {
-      note = `High energy swell (~${swellH}m) today. Rock pools will be turbulent. Snorkeling not advised; stick to sheltered intake pools or kayaking.`;
+      note = `High swell (~${swellH}m) with ${windS}kts wind. Rock pools will be turbulent; stick to sheltered coves or kayaking.`;
     } else if (swellH < 1.2 && windS < 20) {
-      note = `Prime conditions! Low swell (${swellH}m) and manageable wind mean excellent visibility for spotting octopus and shysharks.`;
+      note = `Prime conditions: low swell (${swellH}m) and ${windS}kts wind. Expect excellent visibility for spotting octopus and shysharks.`;
     } else if (windS > 25) {
-      note = "The 'Cape Doctor' is blowing strong. Surface water will be choppy, driving nutrient upwelling. Good for kite surfing, hard for snorkeling.";
+      note = `The 'Cape Doctor' is blowing (${windS}kts). Surface water will be choppy; great upwelling, harder for snorkeling.`;
     } else if (cloudC < 20) {
-      note = "Clear skies tonight! Perfect for Night Walks to see bioluminescence and star constellations reflecting on calm water.";
+      note = `Clear skies (${cloudC}% cloud). Great for night walks and bioluminescence spotting.`;
     } else if (cloudC > 80) {
-      note = "Overcast lighting reduces glare, arguably making it easier to spot invertebrates in shallow tidal pools during the day.";
+      note = `Overcast skies (${cloudC}% cloud) reduce glare, making it easier to spot invertebrates in shallow pools.`;
     } else if (waterT <= 11) {
-      note = `Water is fresh (${waterT}°C)! Cold upwelling suggests high nutrient load—look for active filter feeders.`;
+      note = `Water is fresh (${waterT}°C). Cold upwelling suggests high nutrients—look for active filter feeders.`;
+    } else {
+      note = `Swell ${swellH}m, wind ${windS}kts, cloud ${cloudC}%. Balanced conditions for most adventures.`;
     }
     return note;
   };
 
+  const getVisibilityLabel = (swellHeight, windSpeed, cloudCover) => {
+    let score = 0;
+    if (swellHeight > 2.4) score += 2;
+    else if (swellHeight > 1.8) score += 1;
+    else if (swellHeight > 1.2) score += 0.5;
+
+    if (windSpeed > 28) score += 1.5;
+    else if (windSpeed > 18) score += 1;
+
+    if (cloudCover > 80) score += 1;
+    else if (cloudCover > 50) score += 0.5;
+
+    if (score <= 0.5) return "Excellent";
+    if (score <= 1.5) return "Good";
+    if (score <= 2.5) return "Fair";
+    return "Poor";
+  };
+
+  const updateMarineTicker = (cond) => {
+    if (!cond) return;
+
+    const swellHeight = Number.parseFloat(cond.swellHeight || 0);
+    const windSpeed = Number.parseFloat(cond.windSpeed || 0);
+    const cloudCover = Number.parseFloat(cond.cloudCover || 0);
+    const visibility = getVisibilityLabel(swellHeight, windSpeed, cloudCover);
+
+    const setValue = (key, value) => {
+      document.querySelectorAll(`[data-marine="${key}"]`).forEach((el) => {
+        el.textContent = value;
+      });
+    };
+
+    const swellText = `Swell ${cond.swellHeight || "-"}m ${cond.swellDir || ""}`.trim();
+    const windText = `Wind ${cond.windSpeed || "-"}kts ${cond.windDir || ""}`.trim();
+    const tempText = `Water Temp ${cond.waterTemp || "-"}°C`;
+    const visibilityText = `Visibility ${visibility}`;
+
+    setValue("swell", swellText);
+    setValue("wind", windText);
+    setValue("temp", tempText);
+    setValue("visibility", visibilityText);
+  };
+
   // Function to Render Data to UI
-  const renderUI = (dailyData) => {
+  const renderUI = (dailyData, updatedAt) => {
     if (!dailyData || dailyData.length === 0) return;
 
     // Set Header Data (Today)
     const today = dailyData[0];
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone };
     dateEl.textContent = now.toLocaleDateString('en-ZA', options);
     headerEl.textContent = "Ocean Report: Three Anchor Bay";
+    if (updatedEl) {
+      const updated = updatedAt || new Date();
+      updatedEl.textContent = `Updated ${updated.toLocaleString('en-ZA', {
+        day: 'numeric',
+        month: 'short',
+        hour: '2-digit',
+        minute: '2-digit'
+      })}`;
+    }
 
     // Initial Main Widget Update (Today)
     lowTideEl.textContent = today.low ? formatTime(today.low.time) : '--:--';
@@ -956,10 +1185,12 @@ const setupTideWidget = async () => {
     if (windEl) windEl.textContent = `${today.windSpeed || '-'}kts ${today.windDir || ''}`;
     if (tempEl) tempEl.textContent = `${today.waterTemp || '-'}°C`;
     if (cloudEl) cloudEl.textContent = `${today.cloudCover || '-'}%`;
+    updateMarineTicker(today);
 
-    const moon = getMoonPhase(now);
-    moonEl.textContent = moon.phase;
-    if (moonEl.nextElementSibling) moonEl.nextElementSibling.textContent = moon.illumination + ' Illumination';
+    const todayDate = getDateForZone(today.date);
+    const todayMoon = resolveMoonData(today, todayDate);
+    moonEl.textContent = todayMoon.phase;
+    if (moonEl.nextElementSibling) moonEl.nextElementSibling.textContent = todayMoon.illumination + ' Illumination';
     document.getElementById('bio-note').textContent = today.note;
 
     // Render Forecast Grid
@@ -967,12 +1198,12 @@ const setupTideWidget = async () => {
       forecastGrid.innerHTML = '';
 
       dailyData.forEach((day, index) => {
-        const displayDate = new Date(day.date + 'T00:00:00');
+        const displayDate = getDateForZone(day.date);
 
-        const dayName = displayDate.toLocaleDateString('en-US', { weekday: 'short' });
-        const fullDate = displayDate.toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+        const dayName = displayDate.toLocaleDateString('en-US', { weekday: 'short', timeZone });
+        const fullDate = displayDate.toLocaleDateString('en-ZA', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone });
 
-        const moonData = getMoonPhase(displayDate);
+        const moonData = resolveMoonData(day, displayDate);
 
         // Weather Icon determination
         let icon = "☀️";
@@ -994,6 +1225,12 @@ const setupTideWidget = async () => {
         card.dataset.wind = `${day.windSpeed || '-'}kts ${day.windDir || ''}`;
         card.dataset.temp = `${day.waterTemp || '-'}°C`;
         card.dataset.cloud = `${day.cloudCover || '-'}%`;
+        card.dataset.swellHeight = day.swellHeight || '';
+        card.dataset.swellDir = day.swellDir || '';
+        card.dataset.windSpeed = day.windSpeed || '';
+        card.dataset.windDir = day.windDir || '';
+        card.dataset.waterTemp = day.waterTemp || '';
+        card.dataset.cloudCover = day.cloudCover || '';
         card.dataset.note = day.note;
 
         card.innerHTML = `
@@ -1020,6 +1257,15 @@ const setupTideWidget = async () => {
           const mv = document.getElementById('moon-phase');
           if (mv.nextElementSibling) mv.nextElementSibling.textContent = card.dataset.illum + ' Illumination';
           document.getElementById('bio-note').textContent = card.dataset.note;
+
+          updateMarineTicker({
+            swellHeight: card.dataset.swellHeight,
+            swellDir: card.dataset.swellDir,
+            windSpeed: card.dataset.windSpeed,
+            windDir: card.dataset.windDir,
+            waterTemp: card.dataset.waterTemp,
+            cloudCover: card.dataset.cloudCover,
+          });
         };
 
         forecastGrid.appendChild(card);
@@ -1040,7 +1286,14 @@ const setupTideWidget = async () => {
         const todayStr = getLocalDateStr(new Date());
         if (data[0] && data[0].date === todayStr) {
           console.log("Using cached unified data");
-          renderUI(data);
+          if (!data[0].moonPhase) {
+            await updateMoonPhases(data);
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+              timestamp,
+              data
+            }));
+          }
+          renderUI(data, new Date(timestamp));
           return;
         }
       }
@@ -1151,12 +1404,14 @@ const setupTideWidget = async () => {
       day.note = getBioNote(day);
     });
 
+    await updateMoonPhases(dailyData);
+
     localStorage.setItem(CACHE_KEY, JSON.stringify({
       timestamp: Date.now(),
       data: dailyData
     }));
 
-    renderUI(dailyData);
+    renderUI(dailyData, new Date());
 
   } catch (err) {
     console.error("Ocean data fetch failed", err);

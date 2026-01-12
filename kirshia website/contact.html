@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Aonyx Marine Experiences</title>
-    <meta name="description"
-        content="Book your marine adventure in Cape Town. Contact us for night walks, snorkeling, and more.">
+    <title>Book Cape Town Marine Tours | Aonyx</title>
+    <meta name="description" content="Check availability and book marine biologist-led tours in Cape Town. Night Rock Pool, Snorkel Safari, and Day Rock Pool Walks.">
+    <link rel="canonical" href="https://aonyx.co.za/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Book Cape Town Marine Tours | Aonyx">
+    <meta property="og:description" content="Check availability and book marine biologist-led tours in Cape Town. Night Rock Pool, Snorkel Safari, and Day Rock Pool Walks.">
+    <meta property="og:url" content="https://aonyx.co.za/contact.html">
+    <meta property="og:image" content="imgs/photo5.jpg">
+    <meta property="og:site_name" content="Aonyx">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Book Cape Town Marine Tours | Aonyx">
+    <meta name="twitter:description" content="Check availability and book marine biologist-led tours in Cape Town. Night Rock Pool, Snorkel Safari, and Day Rock Pool Walks.">
+    <meta name="twitter:image" content="imgs/photo5.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="pages.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +24,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 </head>
 
 <body class="contact-page">
@@ -31,9 +41,9 @@
                 <a href="gallery.html">Gallery</a>
                 <a href="weather.html">Weather</a>
                 <a href="contact.html" class="active">Contact</a>
-                <a href="contact.html" class="mobile-only-cta">Book Now</a>
+                <a href="contact.html" class="mobile-only-cta">Check Availability</a>
             </nav>
-            <a class="nav-cta" href="contact.html">Book now</a>
+            <a class="nav-cta" href="contact.html">Check Availability</a>
             <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -81,37 +91,11 @@
                     </a>
                 </div>
                 <div class="contact-form-container" data-animate>
-                    <!-- Step 1: Vibe Selection -->
-                    <div id="booking-step-1" class="booking-step">
-                        <h3 style="margin-bottom: 1.5rem;">What's your vibe?</h3>
-                        <div class="vibe-grid">
-                            <button type="button" class="vibe-card" onclick="selectVibe('Night Walk')">
-                                <span class="vibe-icon">🌙</span>
-                                <span class="vibe-name">Night Walk</span>
-                            </button>
-                            <button type="button" class="vibe-card" onclick="selectVibe('Snorkel Safari')">
-                                <span class="vibe-icon">🤿</span>
-                                <span class="vibe-name">Snorkel</span>
-                            </button>
-                            <button type="button" class="vibe-card" onclick="selectVibe('Day Walk')">
-                                <span class="vibe-icon">🦀</span>
-                                <span class="vibe-name">Day Walk</span>
-                            </button>
-                            <button type="button" class="vibe-card" onclick="selectVibe('Kayak')">
-                                <span class="vibe-icon">🚣</span>
-                                <span class="vibe-name">Kayak</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step 2: Details Form -->
-                    <form id="booking-form" class="contact-form" style="display: none;">
-                        <div style="margin-bottom: 1rem; cursor: pointer; color: var(--text-light); font-size: 0.9rem;"
-                            onclick="resetVibe()">
-                            ← Change Experience: <strong id="selected-vibe-display"
-                                style="color: var(--navy);">...</strong>
-                        </div>
-                        <input type="hidden" id="selected-tour" name="tour-type">
+                    <form class="contact-form" action="https://formsubmit.co/kirshia.govender@gmail.com" method="POST">
+                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_subject" value="New Aonyx inquiry">
+                        <input type="hidden" name="_next" value="https://aonyx.co.za/contact.html">
 
                         <label for="name">Full name</label>
                         <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required>
@@ -120,9 +104,23 @@
                         <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"
                             required>
 
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="phone" type="tel" autocomplete="tel"
+                            placeholder="+27 76 240 7806">
+
+                        <label for="tour">Experience</label>
+                        <select id="tour" name="tour" required>
+                            <option value="" disabled selected>Select an experience</option>
+                            <option>Night Rock Pool Tour</option>
+                            <option>Snorkel Safari</option>
+                            <option>Day Rock Pool Walk</option>
+                            <option>Sea Kayaking</option>
+                            <option>Other</option>
+                        </select>
+
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                             <div>
-                                <label for="date">Date</label>
+                                <label for="date">Preferred date</label>
                                 <input id="date" name="date" type="date">
                             </div>
                             <div>
@@ -132,21 +130,33 @@
                         </div>
 
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Any special requests?"></textarea>
+                        <textarea id="message" name="message" rows="4"
+                            placeholder="Tell us what you're hoping to see or learn."></textarea>
 
-                        <button class="btn primary" type="submit">Request booking</button>
+                        <button class="btn primary" type="submit">Send request</button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer class="footer">
+        <a href="https://wa.me/27762407806" class="floating-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path
+                d="M16.02 5.32c-5.87 0-10.64 4.77-10.64 10.64 0 1.87.5 3.7 1.46 5.32L5 27l5.92-1.55a10.58 10.58 0 0 0 5.1 1.31h.01c5.87 0 10.64-4.77 10.64-10.64 0-2.84-1.1-5.52-3.1-7.52a10.56 10.56 0 0 0-7.55-3.28zm6.16 15.44c-.26.73-1.3 1.35-2 1.45-.49.07-1.1.1-1.77-.11-.41-.13-.94-.31-1.63-.6-2.86-1.24-4.73-4.09-4.87-4.28-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.33-.3.5-.15.18-.32.39-.46.52-.15.14-.3.3-.13.6.18.29.78 1.29 1.68 2.1 1.16 1.05 2.13 1.37 2.42 1.52.3.15.47.13.65-.08.18-.2.74-.86.94-1.15.2-.29.39-.24.66-.14.26.1 1.67.79 1.96.94.29.15.48.22.55.34.07.13.07.73-.19 1.46z">
+            </path>
+        </svg>
+    </a>
+    <a href="contact.html" class="floating-cta" aria-label="Check availability for your adventure">
+        Check Availability
+    </a>
+
+<footer class="footer">
         <div class="footer-inner">
             <div>
                 <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
                     style="height: 90px; margin-bottom: 1rem; display: block;">
-                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <p>Unlocking the ocean's secrets with the experts who know them best.</p>
                 <div style="margin-top: 1rem; opacity: 0.8;">
                     <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
                     <p>kirshia.govender@gmail.com</p>
@@ -198,7 +208,7 @@
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>

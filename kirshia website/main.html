@@ -4,9 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aonyx Marine Experiences | Cape Town Marine Tours</title>
-    <meta name="description"
-        content="Join Aonyx Marine Experiences for guided night rock pool tours, snorkel safaris, and educational marine adventures in Cape Town. Led by qualified marine biologists.">
+    <title>Night Rock Pool Tours & Snorkel Safaris Cape Town | Aonyx</title>
+    <meta name="description" content="Night Rock Pool Tours & Snorkel Safaris in Cape Town. Marine biologist-led, small groups, tide-timed adventures with Aonyx.">
+    <link rel="canonical" href="https://aonyx.co.za/main.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Night Rock Pool Tours & Snorkel Safaris Cape Town | Aonyx">
+    <meta property="og:description" content="Night Rock Pool Tours & Snorkel Safaris in Cape Town. Marine biologist-led, small groups, tide-timed adventures with Aonyx.">
+    <meta property="og:url" content="https://aonyx.co.za/main.html">
+    <meta property="og:image" content="imgs/pics/16.jpg">
+    <meta property="og:site_name" content="Aonyx">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Night Rock Pool Tours & Snorkel Safaris Cape Town | Aonyx">
+    <meta name="twitter:description" content="Night Rock Pool Tours & Snorkel Safaris in Cape Town. Marine biologist-led, small groups, tide-timed adventures with Aonyx.">
+    <meta name="twitter:image" content="imgs/pics/16.jpg">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +28,7 @@
       "@context": "https://schema.org",
       "@type": "TravelAgency",
       "name": "Aonyx Marine Experiences",
+      "url": "https://aonyx.co.za",
       "image": "imgs/colored-logo (1).png",
       "description": "Premium guided night rock pool tours, snorkel safaris, and marine biology adventures in Cape Town.",
       "address": {
@@ -30,8 +41,8 @@
       "email": "kirshia.govender@gmail.com"
     }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
 </head>
 
 <body>
@@ -47,9 +58,9 @@
                 <a href="gallery.html">Gallery</a>
                 <a href="weather.html">Weather</a>
                 <a href="contact.html">Contact</a>
-                <a href="contact.html" class="mobile-only-cta">Book Now</a>
+                <a href="contact.html" class="mobile-only-cta">Check Availability</a>
             </nav>
-            <a class="nav-cta" href="contact.html">Book now</a>
+            <a class="nav-cta" href="contact.html">Check Availability</a>
             <button class="nav-toggle" type="button" data-nav-toggle aria-label="Toggle Navigation">
                 <span class="hamburger-box">
                     <span class="hamburger-inner"></span>
@@ -68,10 +79,10 @@
             <div class="hero_overlay" aria-hidden="true"></div>
             <div class="hero_content" data-animate>
 
-                <h1>Aonyx Marine Experiences</h1>
-                <h2>Unlocking the ocean’s secrets with the experts who know them best.</h2>
+                <h1>AONYX MARINE EXPERIENCES</h1>
+                <h2>Marine Biologist-Led Adventures in Cape Town.</h2>
                 <div class="hero_actions">
-                    <a class="btn primary" href="#contact">Book now</a>
+                    <a class="btn primary" href="#contact">Check Availability</a>
                     <div class="urgency-badge" id="urgency-badge">
                         <span class="pulsing-dot"></span>
                         Next Night Walk: <span id="next-tour-date">Loading...</span>
@@ -188,7 +199,7 @@
                 </div>
                 <div class="cta">
                     <div class="exp-price">From <span class="amount">R650</span> pp</div>
-                    <a class="exp-btn-primary" href="#contact">Book</a>
+                    <a class="exp-btn-primary" href="#contact">Check Availability</a>
                     <a class="exp-btn-ghost" href="#">Discover</a>
                 </div>
             </div>
@@ -208,7 +219,7 @@
                 </div>
                 <div class="cta">
                     <div class="exp-price">From <span class="amount">R650</span> pp</div>
-                    <a class="exp-btn-primary" href="#contact">Book</a>
+                    <a class="exp-btn-primary" href="#contact">Check Availability</a>
                     <a class="exp-btn-ghost" href="#">Discover</a>
                 </div>
             </div>
@@ -361,6 +372,7 @@
                 </div>
                 <div class="testimonial-grid">
                     <div class="testimonial-card" data-animate>
+                        <div class="tour-tag">Night Rock Pool Tour</div>
                         <div class="stars">★★★★★</div>
                         <p class="quote">"An absolute must-do in Cape Town! The night walk was unlike anything I've ever
                             experienced. Seeing the ocean glow was magical."</p>
@@ -373,6 +385,7 @@
                         </div>
                     </div>
                     <div class="testimonial-card" data-animate>
+                        <div class="tour-tag">Snorkel Safari</div>
                         <div class="stars">★★★★★</div>
                         <p class="quote">"Highly recommend the snorkel safari. I was nervous about the cold water but
                             the wetsuits were perfect and the kelp forests are otherworldly."</p>
@@ -385,6 +398,7 @@
                         </div>
                     </div>
                     <div class="testimonial-card" data-animate>
+                        <div class="tour-tag">Day Rock Pool Walk</div>
                         <div class="stars">★★★★★</div>
                         <p class="quote">"Learned so much from Kirshia. Her passion for marine biology is infectious. A
                             fantastic educational experience for the whole family."</p>
@@ -403,9 +417,10 @@
             <div class="video-testimonials" style="margin-top: 4rem;">
 
                 <div class="video-feature" style="margin-top: 2rem;">
-                    <div class="video-container"
+                    <div class="video-container video-parallax"
                         style="width: 100%; height: 80vh; max-height: 800px; background: #000; border-radius: var(--radius-lg); overflow: hidden; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
-                        <video src="imgs/videos/experience-3.mp4" controls playsinline
+                        <div class="video-overlay" aria-hidden="true"></div>
+                        <video class="video-media" src="imgs/videos/experience-3.mp4" controls playsinline
                             style="width: 100%; height: 100%; object-fit: cover;"></video>
                     </div>
 
@@ -420,8 +435,15 @@
 
     </main>
 
-    <a href="#contact" class="floating-cta" aria-label="Book your adventure now">
-        Book Now
+    <a href="https://wa.me/27762407806" class="floating-whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+            <path
+                d="M16.02 5.32c-5.87 0-10.64 4.77-10.64 10.64 0 1.87.5 3.7 1.46 5.32L5 27l5.92-1.55a10.58 10.58 0 0 0 5.1 1.31h.01c5.87 0 10.64-4.77 10.64-10.64 0-2.84-1.1-5.52-3.1-7.52a10.56 10.56 0 0 0-7.55-3.28zm6.16 15.44c-.26.73-1.3 1.35-2 1.45-.49.07-1.1.1-1.77-.11-.41-.13-.94-.31-1.63-.6-2.86-1.24-4.73-4.09-4.87-4.28-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.58-.36.77-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.25.6.85 2.07.92 2.22.08.15.13.33.03.52-.1.2-.15.33-.3.5-.15.18-.32.39-.46.52-.15.14-.3.3-.13.6.18.29.78 1.29 1.68 2.1 1.16 1.05 2.13 1.37 2.42 1.52.3.15.47.13.65-.08.18-.2.74-.86.94-1.15.2-.29.39-.24.66-.14.26.1 1.67.79 1.96.94.29.15.48.22.55.34.07.13.07.73-.19 1.46z">
+            </path>
+        </svg>
+    </a>
+    <a href="#contact" class="floating-cta" aria-label="Check availability for your adventure">
+        Check Availability
     </a>
 
     <footer class="footer">
@@ -429,7 +451,7 @@
             <div>
                 <img src="imgs/colored-logo (1).png" alt="Aonyx logo"
                     style="height: 90px; margin-bottom: 1rem; display: block;">
-                <p>Adventures crafted around tide, light, and the Atlantic.</p>
+                <p>Unlocking the ocean's secrets with the experts who know them best.</p>
                 <div style="margin-top: 1rem; opacity: 0.8;">
                     <p style="margin-bottom: 0.25rem;">+27 76 240 7806</p>
                     <p>kirshia.govender@gmail.com</p>
@@ -489,7 +511,7 @@
         <button class="lightbox_nav next" type="button" data-lightbox-next>Next</button>
     </div>
 
-    <script src="main.js"></script>
+    <script src="main.js" defer></script>
 </body>
 
 </html>
